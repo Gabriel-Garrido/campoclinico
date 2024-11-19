@@ -15,6 +15,7 @@ class StudentView(APIView):
         serializer = StudentSerializer(results, many=True)
         return paginator.get_paginated_response({'students': serializer.data})
 
+
 # Search API for Students
 class SearchStudentView(APIView):
     permission_classes = (permissions.AllowAny, )
@@ -30,6 +31,69 @@ class SearchStudentView(APIView):
         results = paginator.paginate_queryset(matches, request)
         serializer = StudentSerializer(results, many=True)
         return paginator.get_paginated_response({'filtered_students': serializer.data})
+
+
+# API for Assigning a Student to a Place
+class AssignStudentToPlaceView(APIView):
+    def post(self, request):
+        try:
+            place_id = request.data.get('place_id')
+            student_id = request.data.get('student_id')
+            place = Clinic_field_places.objects.get(pk=place_id)
+
+            if place.student:
+                return Response(
+                    {"error": "El cupo ya tiene un estudiante asignado."},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+
+            student = Student.objects.get(pk=student_id)
+            place.student = student
+            place.is_place_available = False
+            place.save()
+
+            return Response(
+                {"message": f"Estudiante {student.name} asignado al cupo correctamente."},
+                status=status.HTTP_200_OK
+            )
+        except Clinic_field_places.DoesNotExist:
+            return Response(
+                {"error": "Cupo no encontrado."},
+                status=status.HTTP_404_NOT_FOUND
+            )
+        except Student.DoesNotExist:
+            return Response(
+                {"error": "Estudiante no encontrado."},
+                status=status.HTTP_404_NOT_FOUND
+            )
+
+
+# API for Unassigning a Student from a Place
+class UnassignStudentFromPlaceView(APIView):
+    def post(self, request):
+        try:
+            place_id = request.data.get('place_id')
+            place = Clinic_field_places.objects.get(pk=place_id)
+
+            if not place.student:
+                return Response(
+                    {"error": "El cupo no tiene un estudiante asignado."},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+
+            place.student = None
+            place.is_place_available = True
+            place.save()
+
+            return Response(
+                {"message": "Estudiante desvinculado del cupo correctamente."},
+                status=status.HTTP_200_OK
+            )
+        except Clinic_field_places.DoesNotExist:
+            return Response(
+                {"error": "Cupo no encontrado."},
+                status=status.HTTP_404_NOT_FOUND
+            )
 
 
 # API for Universities

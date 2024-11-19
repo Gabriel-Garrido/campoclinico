@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 import environ
+from datetime import timedelta
 
 env = environ.Env()
 environ.Env.read_env()
@@ -20,6 +21,7 @@ environ.Env.read_env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+DOMAIN=os.environ.get('DOMAIN')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -47,14 +49,58 @@ DJANGO_APPS = [
 
 PROJECT_APPS = [
     'apps.campoclinico',
+    'apps.user'
 ]
 
 THIRD_PARTY_APPS = [
     'corsheaders',
     'rest_framework',
+    'djoser',
+    'social_django',
+    'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
+
+SIMPLE_JWT = {
+    'AUTH_HEADER_TYPES': ('JWT', ),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=10080),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=30),
+    'ROTATE_REFRESFH_TOKENS':True,
+    'BLACKLIST_AFTER_ROTATION': True,
+    'AUTH_TOKEN_CLASSES': (
+        'rest_framework_simplejwt.tokens.AccessToken',
+    )
+}
+
+DJOSER = {
+    'LOGIN_FIELD': 'email',  # Define que el campo de inicio de sesión será el correo electrónico
+    'USER_CREATE_PASSWORD_RETYPE': True,  # Requiere que el usuario ingrese la contraseña dos veces al crear una cuenta
+    'USERNAME_CHANGED_EMAIL_CONFIRMATION': True,  # Envía un correo de confirmación cuando el nombre de usuario es cambiado
+    'PASSWORD_CHANGED_EMAIL_CONFIRMATION': True,  # Envía un correo de confirmación cuando la contraseña es cambiada
+    'SEND_CONFIRMATION_EMAIL': True,  # Envía un correo de confirmación después de registrarse
+    'SEND_ACTIVATION_EMAIL': True,  # Envía un correo de activación después de registrarse
+    'SET_USERNAME_RETYPE': True,  # Requiere que el usuario ingrese el nuevo nombre de usuario dos veces para confirmación
+    'PASSWORD_RESET_CONFIRM_URL': 'password/reset/confirm/{uid}/{token}',  # URL de confirmación para el restablecimiento de contraseña
+    'SET_PASSWORD_RETYPE': True,  # Requiere que el usuario ingrese la nueva contraseña dos veces para confirmación
+    'PASSWORD_RESET_CONFIRM_RETYPE': True,  # Requiere que el usuario ingrese la nueva contraseña dos veces durante la confirmación de restablecimiento de contraseña
+    'USERNAME_RESET_CONFIRM_URL': 'email/reset/confirm/{uid}/{token}',  # URL de confirmación para el restablecimiento del nombre de usuario
+    'ACTIVATION_URL': 'activate/{uid}/{token}',  # URL de activación de cuenta
+    'SOCIAL_AUTH_TOKEN_STRATEGY': 'djoser.social.token.jwt.TokenStrategy',  # Estrategia de token para autenticación social
+    'SOCIAL_AUTH_ALLOWED_REDIRECT_URIS': [  # URIs permitidas para redireccionamiento después de la autenticación social
+        'http://localhost:8000/google',
+        'http://localhost:8000/facebook'
+    ],
+    'SERIALIZERS': {  # Define los serializadores a utilizar
+        'user_create': 'apps.user.serializers.UserSerializer',  # Serializador para la creación de usuarios
+        'user': 'apps.user.serializers.UserSerializer',  # Serializador para la representación de usuarios
+        'current_user': 'apps.user.serializers.UserSerializer',  # Serializador para la representación del usuario actual
+        'user_delete': 'djoser.serializers.UserDeleteSerializer',  # Serializador para la eliminación de usuarios
+    },
+}
+
+AUTH_USER_MODEL = 'user.UserAccount'
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -98,9 +144,15 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
+
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+]
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -145,14 +197,15 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticatedOrReadOnly'
-    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
 }
 
 CORS_ORIGIN_WHITELIST = env.list('CORS_ORIGIN_WHITELIST_DEV')
 CSRF_TRUSTED_ORIGIN = env.list('CSRF_TRUSTED_ORIGIN_DEV')
 
+EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
 
 if not DEBUG:
     ALLOWED_HOSTS=env.list('ALLOWED_HOSTS_DEPLOY')
