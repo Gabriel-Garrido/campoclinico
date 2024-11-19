@@ -1,9 +1,9 @@
 import { connect } from "react-redux";
 import { RiHealthBookFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
-import About from "containers/pages/About";
+import { logout } from "redux/actions/auth/auth";
 
-function Navbar() {
+function Navbar({ isAuthenticated, logout }) {
   return (
     <nav className="bg-white border-gray-200 dark:bg-blue-600">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -11,7 +11,7 @@ function Navbar() {
           to="/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
-           <RiHealthBookFill className='text-white text-4xl'/>
+          <RiHealthBookFill className="text-white text-4xl" />
           <span className="flex align-middle text-center self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             CampoClínico
           </span>
@@ -42,7 +42,6 @@ function Navbar() {
         </button>
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-blue-600 md:dark:bg-blue-600 dark:border-gray-700 items-center">
-            
             <li>
               <Link
                 to="/about"
@@ -74,10 +73,34 @@ function Navbar() {
               >
                 Contacto
               </Link>
+              <Link
+                to="/studentList"
+                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+              >
+                Estudiantes
+              </Link>
             </li>
-            <li>
-            <button type="button" className="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 me-2  dark:bg-blue-500 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Login</button>
-            </li>
+            {isAuthenticated ? (
+              <li>
+                <button
+                  onClick={logout}
+                  type="button"
+                  className="text-white bg-red-500 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg px-5 py-2.5 dark:bg-red-500 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800"
+                >
+                  Logout
+                </button>
+              </li>
+            ) : (
+              <li>
+                <Link
+                  to="/login"
+                  type="button"
+                  className="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 dark:bg-blue-500 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                >
+                  Login
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>
@@ -85,6 +108,8 @@ function Navbar() {
   );
 }
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
 
-export default connect(mapStateToProps, {})(Navbar);
+export default connect(mapStateToProps, { logout })(Navbar);

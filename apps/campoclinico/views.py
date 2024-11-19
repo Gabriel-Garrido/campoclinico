@@ -15,6 +15,19 @@ class StudentView(APIView):
         serializer = StudentSerializer(results, many=True)
         return paginator.get_paginated_response({'students': serializer.data})
 
+    def post(self, request):
+        serializer = StudentSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(
+                {"message": "Estudiante creado correctamente", "student": serializer.data},
+                status=status.HTTP_201_CREATED
+            )
+        return Response(
+            {"error": "Error al crear el estudiante", "details": serializer.errors},
+            status=status.HTTP_400_BAD_REQUEST
+        )
+
 
 # Search API for Students
 class SearchStudentView(APIView):
