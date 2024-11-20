@@ -107,7 +107,14 @@ class UnassignStudentFromPlaceView(APIView):
                 {"error": "Cupo no encontrado."},
                 status=status.HTTP_404_NOT_FOUND
             )
-
+            
+class Clinic_field_placesView(APIView):
+    def get(self, request):
+        places = Clinic_field_places.objects.all()
+        paginator = SmallSetPagination()
+        results = paginator.paginate_queryset(places, request)
+        serializer = ClinicFieldPlacesSerializer(results, many=True)
+        return paginator.get_paginated_response({'places': serializer.data})
 
 # API for Universities
 class UniversityView(APIView):

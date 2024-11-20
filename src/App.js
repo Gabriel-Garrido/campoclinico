@@ -4,6 +4,7 @@ import About from "containers/pages/About";
 import Contact from "containers/pages/Contact";
 import Home from "containers/pages/Home";
 import Login from "containers/pages/Login";
+import PlacesList from "containers/pages/PlacesList";
 import Prices from "containers/pages/Prices";
 import Services from "containers/pages/Services";
 import StudentList from "containers/pages/StudentList";
@@ -24,6 +25,7 @@ function App() {
           <Route path="/prices" element={<Prices />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/studentList" element={<PrivateRoute> <StudentList /></PrivateRoute>} />
+          <Route path="/placesList" element={<PrivateRoute> <PlacesList/></PrivateRoute>} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </Router>
