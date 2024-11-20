@@ -17,7 +17,6 @@ function StudentList() {
 
   return (
     <Layout>
-      <Navbar />
 
       <section className="bg-white py-8">
         <div className="px-4 mx-auto max-w-screen-xl">
@@ -25,6 +24,7 @@ function StudentList() {
             Lista de Estudiantes
           </h1>
           {students && students&&students.results.students.length > 0 ? (
+            <div className=" container ">
             <ul className="space-y-4">
               {students&&students.results.students.map((student) => (
                 <li key={student.id} className="p-4 border rounded-lg shadow">
@@ -33,15 +33,17 @@ function StudentList() {
                   </p>
                   <p className="text-gray-600">RUT: {student.rut}</p>
                 </li>
+                
               ))}
             </ul>
+            </div>
           ) : (
             <p className="text-gray-500">No hay estudiantes disponibles.</p>
           )}
+          
         </div>
       </section>
 
-      <Footer />
     </Layout>
   );
 }

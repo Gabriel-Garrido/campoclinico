@@ -5,7 +5,6 @@ import Layout from "hocs/layouts/Layout";
 function Contact() {
   return (
     <Layout>
-      <Navbar />
       <div className="flex justify-center bg-gray-100">
         <div className="bg-white mb-32 mt-2 rounded-lg shadow-lg p-6 max-w-md w-full dark:bg-white">
           <h5
@@ -87,7 +86,6 @@ function Contact() {
           </p>
         </div>
       </div>
-      <Footer />
     </Layout>
   );
 }

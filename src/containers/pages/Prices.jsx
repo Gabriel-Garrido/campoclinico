@@ -5,7 +5,6 @@ import Layout from "hocs/layouts/Layout";
 function Prices() {
   return (
     <Layout>
-      <Navbar />
       <div className="p-8 flex justify-center bg-slate-100">
       <div className="w-full mb-24 max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-slate dark:border-gray-700">
         <h5 className="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">
@@ -126,7 +125,6 @@ function Prices() {
         </button>
       </div>
       </div>
-      <Footer />
     </Layout>
   );
 }

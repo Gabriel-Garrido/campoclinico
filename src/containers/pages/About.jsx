@@ -5,7 +5,6 @@ import Layout from "hocs/layouts/Layout";
 function About() {
   return (
     <Layout>
-      <Navbar />
 
       <div className="p-8  bg-slate-100 min-h-screen">
         <h1 className="mb-4 text-3xl font-extrabold text-gray-900 dark:text-gray-900 md:text-5xl lg:text-6xl">
@@ -20,7 +19,6 @@ function About() {
         </p>
       </div>
 
-      <Footer />
     </Layout>
   );
 }

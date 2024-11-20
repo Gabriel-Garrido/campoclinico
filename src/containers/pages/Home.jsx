@@ -16,7 +16,6 @@ function Home({get_students, students}) {
 
   return (
     <Layout>
-      <Navbar />
 
       <section className="bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-gray-700 bg-blend-multiply">
         <div className="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
@@ -59,7 +58,6 @@ function Home({get_students, students}) {
         </div>
       </section>
 
-      <Footer />
     </Layout>
   );
 }
