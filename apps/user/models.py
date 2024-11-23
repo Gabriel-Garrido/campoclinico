@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
+from ..campoclinico.models import University
 
 # Definimos un manager personalizado para el modelo de usuario
 class UserAccountManager(BaseUserManager):
@@ -39,6 +40,7 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
     # Campos para el nombre y apellido del usuario
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
+    university = models.ForeignKey(University, on_delete=models.CASCADE)
     # Campo booleano para indicar si la cuenta está activa
     is_active = models.BooleanField(default=True)
     # Campo booleano para indicar si el usuario es parte del personal (staff)
@@ -52,7 +54,8 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
     # Define que el campo usado para el login será el email
     USERNAME_FIELD = 'email'
     # Campos adicionales requeridos al crear un usuario
-    REQUIRED_FIELDS = ['first_name', 'last_name']
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'university']
+    
 
     # Método para representar el modelo como una cadena
     def __str__(self):

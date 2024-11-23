@@ -19,6 +19,7 @@ class UserSerializer(UserCreateSerializer):
             'email',       # Correo electrónico del usuario
             'first_name',  # Nombre del usuario
             'last_name',   # Apellido del usuario
+            'university',
             'is_active',   # Indica si la cuenta del usuario está activa
             'is_staff',    # Indica si el usuario es parte del personal (staff)
             'is_editor',   # Indica si el usuario tiene permisos adicionales, como editor
