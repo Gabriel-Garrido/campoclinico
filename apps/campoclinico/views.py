@@ -52,7 +52,7 @@ class AssignStudentToPlaceView(APIView):
         try:
             place_id = request.data.get('place_id')
             student_id = request.data.get('student_id')
-            place = Clinic_field_places.objects.get(pk=place_id)
+            place = ClinicFieldPlaces.objects.get(pk=place_id)
 
             if place.student:
                 return Response(
@@ -69,7 +69,7 @@ class AssignStudentToPlaceView(APIView):
                 {"message": f"Estudiante {student.name} asignado al cupo correctamente."},
                 status=status.HTTP_200_OK
             )
-        except Clinic_field_places.DoesNotExist:
+        except ClinicFieldPlaces.DoesNotExist:
             return Response(
                 {"error": "Cupo no encontrado."},
                 status=status.HTTP_404_NOT_FOUND
@@ -86,7 +86,7 @@ class UnassignStudentFromPlaceView(APIView):
     def post(self, request):
         try:
             place_id = request.data.get('place_id')
-            place = Clinic_field_places.objects.get(pk=place_id)
+            place = ClinicFieldPlaces.objects.get(pk=place_id)
 
             if not place.student:
                 return Response(
@@ -102,19 +102,43 @@ class UnassignStudentFromPlaceView(APIView):
                 {"message": "Estudiante desvinculado del cupo correctamente."},
                 status=status.HTTP_200_OK
             )
-        except Clinic_field_places.DoesNotExist:
+        except ClinicFieldPlaces.DoesNotExist:
             return Response(
                 {"error": "Cupo no encontrado."},
                 status=status.HTTP_404_NOT_FOUND
             )
             
-class Clinic_field_placesView(APIView):
+class ClinicFieldPlacesView(APIView):
     def get(self, request):
-        places = Clinic_field_places.objects.all()
+        places = ClinicFieldPlaces.objects.all()
         paginator = SmallSetPagination()
         results = paginator.paginate_queryset(places, request)
         serializer = ClinicFieldPlacesSerializer(results, many=True)
         return paginator.get_paginated_response({'places': serializer.data})
+
+class PlacesByUniversityView(APIView):
+    """
+    Vista para obtener los cupos asociados a una universidad específica.
+    """
+    def get(self, request, university_id):
+        try:
+            # Validar que la universidad existe
+            university = University.objects.get(pk=university_id)
+            
+            # Filtrar los cupos
+            places = ClinicFieldPlaces.objects.filter(
+                subject__semester__career__university=university
+            )
+            
+            # Serializar los resultados
+            serializer = ClinicFieldPlacesSerializer(places, many=True)
+            
+            return Response({"places": serializer.data}, status=status.HTTP_200_OK)
+        except University.DoesNotExist:
+            return Response(
+                {"error": "Universidad no encontrada."},
+                status=status.HTTP_404_NOT_FOUND
+            )
 
 # API for Universities
 class UniversityView(APIView):

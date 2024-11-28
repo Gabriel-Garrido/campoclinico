@@ -56,7 +56,7 @@ class Student(models.Model):
     class Meta:
         unique_together = ('rut', 'career')
 
-class Clinic_field_intitution(models.Model):
+class ClinicFieldIntitution(models.Model):
     intitution_name = models.CharField(max_length=50, unique=False)
     institution_branch_name = models.CharField(max_length=50, unique=False, null=True)
     clinic_field_code = models.CharField(max_length=50, unique=False)
@@ -65,13 +65,13 @@ class Clinic_field_intitution(models.Model):
     clinic_field_razon_social = models.CharField(max_length=50, unique=False)
     is_clinic_field_agreement_active = models.BooleanField(default=True, null=False)
         
-class Clinic_field_unity(models.Model):
-    clinic_field_unity_name = models.CharField(max_length=50, unique=False)
-    clinic_field_intitution = models.ForeignKey(Clinic_field_intitution, on_delete=models.CASCADE, null=False)
+class ClinicFieldUnity(models.Model):
+    ClinicFieldUnity_name = models.CharField(max_length=50, unique=False)
+    ClinicFieldIntitution = models.ForeignKey(ClinicFieldIntitution, on_delete=models.CASCADE, null=False)
     
     
-class Clinic_field_places(models.Model):
-    clinic_field_unity = models.ForeignKey(Clinic_field_unity, on_delete=models.CASCADE, null=False)
+class ClinicFieldPlaces(models.Model):
+    ClinicFieldUnity = models.ForeignKey(ClinicFieldUnity, on_delete=models.CASCADE, null=False)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE, null=False)
     student = models.ForeignKey(Student, null=True, default=None, on_delete=models.CASCADE) 
     teacher_name = models.CharField(max_length=50, unique=False)

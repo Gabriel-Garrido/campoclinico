@@ -1155,7 +1155,7 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_intitution",
+        "model": "campoclinico.ClinicFieldIntitution",
         "pk": 1,
         "fields": {
             "intitution_name": "Hospital Clínico 1",
@@ -1168,7 +1168,7 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_intitution",
+        "model": "campoclinico.ClinicFieldIntitution",
         "pk": 2,
         "fields": {
             "intitution_name": "Hospital Clínico 2",
@@ -1181,7 +1181,7 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_intitution",
+        "model": "campoclinico.ClinicFieldIntitution",
         "pk": 3,
         "fields": {
             "intitution_name": "Hospital Clínico 3",
@@ -1194,82 +1194,82 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_unity",
+        "model": "campoclinico.ClinicFieldUnity",
         "pk": 1,
         "fields": {
-            "clinic_field_unity_name": "Unidad de Cuidados Intensivos 1",
-            "clinic_field_intitution": 2
+            "ClinicFieldUnity_name": "Unidad de Cuidados Intensivos 1",
+            "ClinicFieldIntitution": 2
         }
     },
     {
-        "model": "campoclinico.clinic_field_unity",
+        "model": "campoclinico.ClinicFieldUnity",
         "pk": 2,
         "fields": {
-            "clinic_field_unity_name": "Unidad de Cuidados Intensivos 2",
-            "clinic_field_intitution": 3
+            "ClinicFieldUnity_name": "Unidad de Cuidados Intensivos 2",
+            "ClinicFieldIntitution": 3
         }
     },
     {
-        "model": "campoclinico.clinic_field_unity",
+        "model": "campoclinico.ClinicFieldUnity",
         "pk": 3,
         "fields": {
-            "clinic_field_unity_name": "Unidad de Cuidados Intensivos 3",
-            "clinic_field_intitution": 1
+            "ClinicFieldUnity_name": "Unidad de Cuidados Intensivos 3",
+            "ClinicFieldIntitution": 1
         }
     },
     {
-        "model": "campoclinico.clinic_field_unity",
+        "model": "campoclinico.ClinicFieldUnity",
         "pk": 4,
         "fields": {
-            "clinic_field_unity_name": "Unidad de Cuidados Intensivos 4",
-            "clinic_field_intitution": 2
+            "ClinicFieldUnity_name": "Unidad de Cuidados Intensivos 4",
+            "ClinicFieldIntitution": 2
         }
     },
     {
-        "model": "campoclinico.clinic_field_unity",
+        "model": "campoclinico.ClinicFieldUnity",
         "pk": 5,
         "fields": {
-            "clinic_field_unity_name": "Unidad de Cuidados Intensivos 5",
-            "clinic_field_intitution": 3
+            "ClinicFieldUnity_name": "Unidad de Cuidados Intensivos 5",
+            "ClinicFieldIntitution": 3
         }
     },
     {
-        "model": "campoclinico.clinic_field_unity",
+        "model": "campoclinico.ClinicFieldUnity",
         "pk": 6,
         "fields": {
-            "clinic_field_unity_name": "Unidad de Cuidados Intensivos 6",
-            "clinic_field_intitution": 1
+            "ClinicFieldUnity_name": "Unidad de Cuidados Intensivos 6",
+            "ClinicFieldIntitution": 1
         }
     },
     {
-        "model": "campoclinico.clinic_field_unity",
+        "model": "campoclinico.ClinicFieldUnity",
         "pk": 7,
         "fields": {
-            "clinic_field_unity_name": "Unidad de Cuidados Intensivos 7",
-            "clinic_field_intitution": 2
+            "ClinicFieldUnity_name": "Unidad de Cuidados Intensivos 7",
+            "ClinicFieldIntitution": 2
         }
     },
     {
-        "model": "campoclinico.clinic_field_unity",
+        "model": "campoclinico.ClinicFieldUnity",
         "pk": 8,
         "fields": {
-            "clinic_field_unity_name": "Unidad de Cuidados Intensivos 8",
-            "clinic_field_intitution": 3
+            "ClinicFieldUnity_name": "Unidad de Cuidados Intensivos 8",
+            "ClinicFieldIntitution": 3
         }
     },
     {
-        "model": "campoclinico.clinic_field_unity",
+        "model": "campoclinico.ClinicFieldUnity",
         "pk": 9,
         "fields": {
-            "clinic_field_unity_name": "Unidad de Cuidados Intensivos 9",
-            "clinic_field_intitution": 1
+            "ClinicFieldUnity_name": "Unidad de Cuidados Intensivos 9",
+            "ClinicFieldIntitution": 1
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 1,
         "fields": {
-            "clinic_field_unity": 2,
+            "ClinicFieldUnity": 2,
             "subject": 2,
             "student": 1,
             "teacher_name": "Dr. Juan Pérez 1",
@@ -1282,10 +1282,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 2,
         "fields": {
-            "clinic_field_unity": 3,
+            "ClinicFieldUnity": 3,
             "subject": 3,
             "student": 2,
             "teacher_name": "Dr. Juan Pérez 2",
@@ -1298,10 +1298,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 3,
         "fields": {
-            "clinic_field_unity": 4,
+            "ClinicFieldUnity": 4,
             "subject": 4,
             "student": 3,
             "teacher_name": "Dr. Juan Pérez 3",
@@ -1314,10 +1314,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 4,
         "fields": {
-            "clinic_field_unity": 5,
+            "ClinicFieldUnity": 5,
             "subject": 5,
             "student": 4,
             "teacher_name": "Dr. Juan Pérez 4",
@@ -1330,10 +1330,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 5,
         "fields": {
-            "clinic_field_unity": 6,
+            "ClinicFieldUnity": 6,
             "subject": 1,
             "student": 5,
             "teacher_name": "Dr. Juan Pérez 5",
@@ -1346,10 +1346,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 6,
         "fields": {
-            "clinic_field_unity": 7,
+            "ClinicFieldUnity": 7,
             "subject": 2,
             "student": 6,
             "teacher_name": "Dr. Juan Pérez 6",
@@ -1362,10 +1362,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 7,
         "fields": {
-            "clinic_field_unity": 8,
+            "ClinicFieldUnity": 8,
             "subject": 3,
             "student": 7,
             "teacher_name": "Dr. Juan Pérez 7",
@@ -1378,10 +1378,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 8,
         "fields": {
-            "clinic_field_unity": 9,
+            "ClinicFieldUnity": 9,
             "subject": 4,
             "student": 8,
             "teacher_name": "Dr. Juan Pérez 8",
@@ -1394,10 +1394,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 9,
         "fields": {
-            "clinic_field_unity": 1,
+            "ClinicFieldUnity": 1,
             "subject": 5,
             "student": 9,
             "teacher_name": "Dr. Juan Pérez 9",
@@ -1410,10 +1410,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 10,
         "fields": {
-            "clinic_field_unity": 2,
+            "ClinicFieldUnity": 2,
             "subject": 1,
             "student": 10,
             "teacher_name": "Dr. Juan Pérez 10",
@@ -1426,10 +1426,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 11,
         "fields": {
-            "clinic_field_unity": 3,
+            "ClinicFieldUnity": 3,
             "subject": 2,
             "student": 11,
             "teacher_name": "Dr. Juan Pérez 11",
@@ -1442,10 +1442,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 12,
         "fields": {
-            "clinic_field_unity": 4,
+            "ClinicFieldUnity": 4,
             "subject": 3,
             "student": 12,
             "teacher_name": "Dr. Juan Pérez 12",
@@ -1458,10 +1458,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 13,
         "fields": {
-            "clinic_field_unity": 5,
+            "ClinicFieldUnity": 5,
             "subject": 4,
             "student": 13,
             "teacher_name": "Dr. Juan Pérez 13",
@@ -1474,10 +1474,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 14,
         "fields": {
-            "clinic_field_unity": 6,
+            "ClinicFieldUnity": 6,
             "subject": 5,
             "student": 14,
             "teacher_name": "Dr. Juan Pérez 14",
@@ -1490,10 +1490,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 15,
         "fields": {
-            "clinic_field_unity": 7,
+            "ClinicFieldUnity": 7,
             "subject": 1,
             "student": 15,
             "teacher_name": "Dr. Juan Pérez 15",
@@ -1506,10 +1506,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 16,
         "fields": {
-            "clinic_field_unity": 8,
+            "ClinicFieldUnity": 8,
             "subject": 2,
             "student": 16,
             "teacher_name": "Dr. Juan Pérez 16",
@@ -1522,10 +1522,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 17,
         "fields": {
-            "clinic_field_unity": 9,
+            "ClinicFieldUnity": 9,
             "subject": 3,
             "student": 17,
             "teacher_name": "Dr. Juan Pérez 17",
@@ -1538,10 +1538,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 18,
         "fields": {
-            "clinic_field_unity": 1,
+            "ClinicFieldUnity": 1,
             "subject": 4,
             "student": 18,
             "teacher_name": "Dr. Juan Pérez 18",
@@ -1554,10 +1554,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 19,
         "fields": {
-            "clinic_field_unity": 2,
+            "ClinicFieldUnity": 2,
             "subject": 5,
             "student": 19,
             "teacher_name": "Dr. Juan Pérez 19",
@@ -1570,10 +1570,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 20,
         "fields": {
-            "clinic_field_unity": 3,
+            "ClinicFieldUnity": 3,
             "subject": 1,
             "student": 20,
             "teacher_name": "Dr. Juan Pérez 20",
@@ -1586,10 +1586,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 21,
         "fields": {
-            "clinic_field_unity": 4,
+            "ClinicFieldUnity": 4,
             "subject": 2,
             "student": 21,
             "teacher_name": "Dr. Juan Pérez 21",
@@ -1602,10 +1602,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 22,
         "fields": {
-            "clinic_field_unity": 5,
+            "ClinicFieldUnity": 5,
             "subject": 3,
             "student": 22,
             "teacher_name": "Dr. Juan Pérez 22",
@@ -1618,10 +1618,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 23,
         "fields": {
-            "clinic_field_unity": 6,
+            "ClinicFieldUnity": 6,
             "subject": 4,
             "student": 23,
             "teacher_name": "Dr. Juan Pérez 23",
@@ -1634,10 +1634,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 24,
         "fields": {
-            "clinic_field_unity": 7,
+            "ClinicFieldUnity": 7,
             "subject": 5,
             "student": 24,
             "teacher_name": "Dr. Juan Pérez 24",
@@ -1650,10 +1650,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 25,
         "fields": {
-            "clinic_field_unity": 8,
+            "ClinicFieldUnity": 8,
             "subject": 1,
             "student": 25,
             "teacher_name": "Dr. Juan Pérez 25",
@@ -1666,10 +1666,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 26,
         "fields": {
-            "clinic_field_unity": 9,
+            "ClinicFieldUnity": 9,
             "subject": 2,
             "student": 26,
             "teacher_name": "Dr. Juan Pérez 26",
@@ -1682,10 +1682,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 27,
         "fields": {
-            "clinic_field_unity": 1,
+            "ClinicFieldUnity": 1,
             "subject": 3,
             "student": 27,
             "teacher_name": "Dr. Juan Pérez 27",
@@ -1698,10 +1698,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 28,
         "fields": {
-            "clinic_field_unity": 2,
+            "ClinicFieldUnity": 2,
             "subject": 4,
             "student": 28,
             "teacher_name": "Dr. Juan Pérez 28",
@@ -1714,10 +1714,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 29,
         "fields": {
-            "clinic_field_unity": 3,
+            "ClinicFieldUnity": 3,
             "subject": 5,
             "student": 29,
             "teacher_name": "Dr. Juan Pérez 29",
@@ -1730,10 +1730,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 30,
         "fields": {
-            "clinic_field_unity": 4,
+            "ClinicFieldUnity": 4,
             "subject": 1,
             "student": 30,
             "teacher_name": "Dr. Juan Pérez 30",
@@ -1746,10 +1746,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 31,
         "fields": {
-            "clinic_field_unity": 5,
+            "ClinicFieldUnity": 5,
             "subject": 2,
             "student": 31,
             "teacher_name": "Dr. Juan Pérez 31",
@@ -1762,10 +1762,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 32,
         "fields": {
-            "clinic_field_unity": 6,
+            "ClinicFieldUnity": 6,
             "subject": 3,
             "student": 32,
             "teacher_name": "Dr. Juan Pérez 32",
@@ -1778,10 +1778,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 33,
         "fields": {
-            "clinic_field_unity": 7,
+            "ClinicFieldUnity": 7,
             "subject": 4,
             "student": 33,
             "teacher_name": "Dr. Juan Pérez 33",
@@ -1794,10 +1794,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 34,
         "fields": {
-            "clinic_field_unity": 8,
+            "ClinicFieldUnity": 8,
             "subject": 5,
             "student": 34,
             "teacher_name": "Dr. Juan Pérez 34",
@@ -1810,10 +1810,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 35,
         "fields": {
-            "clinic_field_unity": 9,
+            "ClinicFieldUnity": 9,
             "subject": 1,
             "student": 35,
             "teacher_name": "Dr. Juan Pérez 35",
@@ -1826,10 +1826,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 36,
         "fields": {
-            "clinic_field_unity": 1,
+            "ClinicFieldUnity": 1,
             "subject": 2,
             "student": 36,
             "teacher_name": "Dr. Juan Pérez 36",
@@ -1842,10 +1842,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 37,
         "fields": {
-            "clinic_field_unity": 2,
+            "ClinicFieldUnity": 2,
             "subject": 3,
             "student": 37,
             "teacher_name": "Dr. Juan Pérez 37",
@@ -1858,10 +1858,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 38,
         "fields": {
-            "clinic_field_unity": 3,
+            "ClinicFieldUnity": 3,
             "subject": 4,
             "student": 38,
             "teacher_name": "Dr. Juan Pérez 38",
@@ -1874,10 +1874,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 39,
         "fields": {
-            "clinic_field_unity": 4,
+            "ClinicFieldUnity": 4,
             "subject": 5,
             "student": 39,
             "teacher_name": "Dr. Juan Pérez 39",
@@ -1890,10 +1890,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 40,
         "fields": {
-            "clinic_field_unity": 5,
+            "ClinicFieldUnity": 5,
             "subject": 1,
             "student": 40,
             "teacher_name": "Dr. Juan Pérez 40",
@@ -1906,10 +1906,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 41,
         "fields": {
-            "clinic_field_unity": 6,
+            "ClinicFieldUnity": 6,
             "subject": 2,
             "student": 41,
             "teacher_name": "Dr. Juan Pérez 41",
@@ -1922,10 +1922,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 42,
         "fields": {
-            "clinic_field_unity": 7,
+            "ClinicFieldUnity": 7,
             "subject": 3,
             "student": 42,
             "teacher_name": "Dr. Juan Pérez 42",
@@ -1938,10 +1938,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 43,
         "fields": {
-            "clinic_field_unity": 8,
+            "ClinicFieldUnity": 8,
             "subject": 4,
             "student": 43,
             "teacher_name": "Dr. Juan Pérez 43",
@@ -1954,10 +1954,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 44,
         "fields": {
-            "clinic_field_unity": 9,
+            "ClinicFieldUnity": 9,
             "subject": 5,
             "student": 44,
             "teacher_name": "Dr. Juan Pérez 44",
@@ -1970,10 +1970,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 45,
         "fields": {
-            "clinic_field_unity": 1,
+            "ClinicFieldUnity": 1,
             "subject": 1,
             "student": 45,
             "teacher_name": "Dr. Juan Pérez 45",
@@ -1986,10 +1986,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 46,
         "fields": {
-            "clinic_field_unity": 2,
+            "ClinicFieldUnity": 2,
             "subject": 2,
             "student": 46,
             "teacher_name": "Dr. Juan Pérez 46",
@@ -2002,10 +2002,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 47,
         "fields": {
-            "clinic_field_unity": 3,
+            "ClinicFieldUnity": 3,
             "subject": 3,
             "student": 47,
             "teacher_name": "Dr. Juan Pérez 47",
@@ -2018,10 +2018,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 48,
         "fields": {
-            "clinic_field_unity": 4,
+            "ClinicFieldUnity": 4,
             "subject": 4,
             "student": 48,
             "teacher_name": "Dr. Juan Pérez 48",
@@ -2034,10 +2034,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 49,
         "fields": {
-            "clinic_field_unity": 5,
+            "ClinicFieldUnity": 5,
             "subject": 5,
             "student": 49,
             "teacher_name": "Dr. Juan Pérez 49",
@@ -2050,10 +2050,10 @@
         }
     },
     {
-        "model": "campoclinico.clinic_field_places",
+        "model": "campoclinico.ClinicFieldPlaces",
         "pk": 50,
         "fields": {
-            "clinic_field_unity": 6,
+            "ClinicFieldUnity": 6,
             "subject": 1,
             "student": 50,
             "teacher_name": "Dr. Juan Pérez 50",

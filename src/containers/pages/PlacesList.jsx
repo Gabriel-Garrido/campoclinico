@@ -1,19 +1,20 @@
-import Footer from "components/navigation/Footer";
-import Navbar from "components/navigation/Navbar";
 import Layout from "hocs/layouts/Layout";
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { getPlaces, assignStudentToPlace } from "redux/actions/places/places";
 
-function PlacesList({ places, getPlaces, assignStudentToPlace }) {
+function PlacesList({ places, getPlaces, assignStudentToPlace, user }) {
   const [studentId, setStudentId] = useState("");
   const [loading, setLoading] = useState(true);
+
+  console.log('user.university en placelist ', user.university);
+  
 
   useEffect(() => {
     const fetchPlaces = async () => {
       setLoading(true);
       try {
-        await getPlaces(); // Se asegura que getPlaces no cause problemas
+        await getPlaces(user&&user.university); // Se asegura que getPlaces no cause problemas
       } catch (error) {
         console.error("Error al cargar los cupos:", error);
       } finally {
@@ -22,7 +23,7 @@ function PlacesList({ places, getPlaces, assignStudentToPlace }) {
     };
 
     fetchPlaces();
-  }, [getPlaces]);
+  }, []);
 
   const handleAssign = async (placeId) => {
     if (studentId) {
@@ -101,6 +102,7 @@ function PlacesList({ places, getPlaces, assignStudentToPlace }) {
 
 const mapStateToProps = (state) => ({
   places: state.places?.places || [], // Asegurar que el estado esté inicializado
+  user: state.auth.user || [],
 });
 
 export default connect(mapStateToProps, { getPlaces, assignStudentToPlace })(

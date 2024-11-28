@@ -7,14 +7,14 @@ import {
 } from "./types";
 
 // Action to fetch all places
-export const getPlaces = () => async (dispatch) => {
+export const getPlaces = (university) => async (dispatch) => {
     try {
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/campoclinico/places/`);
-        console.log('places: ', res.data.results.places);
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/campoclinico/places/university/${university}/`);
+        console.log('places: ', res.data.places);
         
         dispatch({
             type: GET_PLACES_SUCCESS,
-            payload: res.data.results.places, // Expected key in API response
+            payload: res.data.places, // Expected key in API response
         });
     } catch (err) {
         dispatch({
