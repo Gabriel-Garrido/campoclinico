@@ -1,5 +1,13 @@
 import axios from "axios";
-import { LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT, USER_LOADED_SUCCESS, USER_LOADED_FAIL } from "./types";
+import {
+  LOGIN_SUCCESS,
+  LOGIN_FAIL,
+  LOGOUT,
+  USER_LOADED_SUCCESS,
+  USER_LOADED_FAIL,
+  REFRESH_SUCCESS,
+  REFRESH_FAIL,
+} from "./types";
 
 // Configuración común para solicitudes
 const config = {
@@ -13,7 +21,6 @@ export const login = (email, password) => async (dispatch) => {
   const body = JSON.stringify({ email, password });
 
   try {
-    // Obtener los tokens (access y refresh)
     const res = await axios.post(
       `${process.env.REACT_APP_API_URL}/auth/jwt/create/`,
       body,
@@ -22,19 +29,17 @@ export const login = (email, password) => async (dispatch) => {
 
     const { access, refresh } = res.data;
 
-    // Guardar los tokens en localStorage
     localStorage.setItem("access", access);
     localStorage.setItem("refresh", refresh);
 
     dispatch({
       type: LOGIN_SUCCESS,
-      payload: res.data,
+      payload: { access, refresh },
     });
 
-    // Cargar los datos del usuario después del login
     dispatch(loadUser());
   } catch (err) {
-    console.error(err);
+    console.error("Error en login: ", err.response?.data || err.message);
     dispatch({
       type: LOGIN_FAIL,
     });
@@ -43,32 +48,73 @@ export const login = (email, password) => async (dispatch) => {
 
 // Acción para cargar los datos del usuario autenticado
 export const loadUser = () => async (dispatch) => {
+  const token = localStorage.getItem("access");
+
+  if (!token) {
+    dispatch({
+      type: USER_LOADED_FAIL,
+    });
+    return;
+  }
+
   try {
-    // Configuración con el token de acceso
-    const token = localStorage.getItem("access");
     const authConfig = {
       headers: {
-        ...config.headers,
         Authorization: `JWT ${token}`,
       },
     };
 
-    // Solicitar los datos del usuario
     const res = await axios.get(
       `${process.env.REACT_APP_API_URL}/auth/users/me/`,
       authConfig
     );
 
-    console.log("User data: ", res.data);
-
     dispatch({
       type: USER_LOADED_SUCCESS,
-      payload: res.data, // Aquí estarán los datos del usuario (nombre, apellido, etc.)
+      payload: res.data,
     });
   } catch (err) {
-    console.error(err);
+    console.error("Error al cargar el usuario: ", err.response?.data || err.message);
     dispatch({
       type: USER_LOADED_FAIL,
+    });
+  }
+};
+
+// Acción para refrescar el token de acceso
+export const refreshAccessToken = () => async (dispatch) => {
+  const refresh = localStorage.getItem("refresh");
+
+  if (!refresh) {
+    dispatch({
+      type: REFRESH_FAIL,
+    });
+    return;
+  }
+
+  const body = JSON.stringify({ refresh });
+
+  try {
+    const res = await axios.post(
+      `${process.env.REACT_APP_API_URL}/auth/jwt/refresh/`,
+      body,
+      config
+    );
+
+    const { access } = res.data;
+
+    localStorage.setItem("access", access);
+
+    dispatch({
+      type: REFRESH_SUCCESS,
+      payload: { access },
+    });
+
+    dispatch(loadUser());
+  } catch (err) {
+    console.error("Error al refrescar el token: ", err.response?.data || err.message);
+    dispatch({
+      type: REFRESH_FAIL,
     });
   }
 };

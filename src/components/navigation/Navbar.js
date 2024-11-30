@@ -5,6 +5,8 @@ import { logout } from "redux/actions/auth/auth";
 
 function Navbar({ isAuthenticated, logout, user }) {
   console.log("user en navbar ", user);
+  console.log("isAuthenticated en navbar ", isAuthenticated);
+
 
   return (
     <nav className="bg-white border-gray-200 dark:bg-blue-600">
@@ -99,7 +101,7 @@ function Navbar({ isAuthenticated, logout, user }) {
               <></>
             )}
 
-            {isAuthenticated ? (
+            {isAuthenticated ? ( 
               <li>
                 <span className="text-white">
                   Bienvenido, {user && user.first_name}
@@ -114,6 +116,7 @@ function Navbar({ isAuthenticated, logout, user }) {
                 </button>
               </li>
             ) : (
+              
               <li>
                 <Link
                   to="/login"
