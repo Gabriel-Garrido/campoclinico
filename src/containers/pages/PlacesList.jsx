@@ -2,19 +2,25 @@ import Layout from "hocs/layouts/Layout";
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { getPlaces, assignStudentToPlace } from "redux/actions/places/places";
+import { ClipLoader } from "react-spinners";
+import FilterPanel from "../../components/placesList/FilterPanel";
+import ScheduleList from "../../components/placesList/ScheduleList";
 
 function PlacesList({ places, getPlaces, assignStudentToPlace, user }) {
   const [studentId, setStudentId] = useState("");
   const [loading, setLoading] = useState(true);
-
-  console.log('user.university en placelist ', user.university);
-  
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [filteredPlaces, setFilteredPlaces] = useState([]);
+  const [selectedInstitution, setSelectedInstitution] = useState(null);
+  const [selectedUnit, setSelectedUnit] = useState(null); // Asegúrate de definirlo aquí
 
   useEffect(() => {
     const fetchPlaces = async () => {
       setLoading(true);
       try {
-        await getPlaces(user&&user.university); // Se asegura que getPlaces no cause problemas
+        if (user?.university) {
+          await getPlaces(user.university);
+        }
       } catch (error) {
         console.error("Error al cargar los cupos:", error);
       } finally {
@@ -23,15 +29,33 @@ function PlacesList({ places, getPlaces, assignStudentToPlace, user }) {
     };
 
     fetchPlaces();
-  }, []);
+  }, [getPlaces, user]);
+
+  useEffect(() => {
+    if (selectedDate) {
+      const dateStr = selectedDate.toISOString().split("T")[0];
+      setFilteredPlaces(
+        places.filter(
+          (place) =>
+            place.date === dateStr &&
+            (!selectedInstitution ||
+              place.ClinicFieldUnity.ClinicFieldIntitution.id ===
+                selectedInstitution.value) &&
+            (!selectedUnit ||
+              place.ClinicFieldUnity.id === selectedUnit.value) // Filtrar por unidad seleccionada
+        )
+      );
+    } else {
+      setFilteredPlaces([]); // No mostrar cupos si no se selecciona una fecha
+    }
+  }, [selectedDate, selectedInstitution, selectedUnit, places]);
 
   const handleAssign = async (placeId) => {
     if (studentId) {
       try {
         await assignStudentToPlace(placeId, studentId);
-        setStudentId(""); // Limpiar el input después de la asignación
-        // Refrescar los datos después de asignar un estudiante
-        getPlaces();
+        setStudentId("");
+        getPlaces(user.university);
       } catch (error) {
         console.error("Error al asignar estudiante:", error);
       }
@@ -43,57 +67,50 @@ function PlacesList({ places, getPlaces, assignStudentToPlace, user }) {
   return (
     <Layout>
       <section className="bg-white py-8">
-        <div className="px-4 mx-auto max-w-screen-xl">
-          <h1 className="mb-6 text-2xl font-bold text-gray-800">
-            Lista de Cupos Clínicos
-          </h1>
-          <div className="mb-4">
-            <input
-              type="text"
-              className="border p-2 rounded w-full md:w-1/2"
-              placeholder="Ingrese ID de estudiante"
-              value={studentId}
-              onChange={(e) => setStudentId(e.target.value)}
-            />
-          </div>
-          {loading ? (
-            <p className="text-gray-500">Cargando cupos...</p>
-          ) : places && places.length > 0 ? (
-            <div className="container">
-              <ul className="space-y-4">
-                {places.map((place) => (
-                  <li
-                    key={place.id}
-                    className={`p-4 border rounded-lg shadow ${
-                      place.is_place_available
-                        ? "bg-green-100"
-                        : "bg-red-100"
-                    }`}
-                  >
-                    <p className="text-lg font-medium">
-                      Fecha: {place.date} | Horario: {place.start_time} -{" "}
-                      {place.end_time}
-                    </p>
-                    <p className="text-gray-600">
-                      {place.is_place_available
-                        ? "Cupo disponible"
-                        : `Ocupado por: ${place.student?.name} ${place.student?.last_name}`}
-                    </p>
-                    {place.is_place_available && (
-                      <button
-                        onClick={() => handleAssign(place.id)}
-                        className="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                      >
-                        Asignar estudiante
-                      </button>
-                    )}
-                  </li>
-                ))}
-              </ul>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 mx-auto max-w-screen-xl">
+          {/* Panel de Filtros */}
+          <FilterPanel
+            selectedDate={selectedDate}
+            setSelectedDate={setSelectedDate}
+            selectedInstitution={selectedInstitution}
+            setSelectedInstitution={setSelectedInstitution}
+            selectedUnit={selectedUnit} // Pasa el estado de unidad
+            setSelectedUnit={setSelectedUnit} // Pasa la función actualizadora
+            places={places}
+          />
+
+          {/* Lista de Cupos */}
+          <div className="col-span-2">
+            <div className="mb-4">
+              <input
+                type="text"
+                className="border p-2 rounded w-full"
+                placeholder="Ingrese ID de estudiante"
+                value={studentId}
+                onChange={(e) => setStudentId(e.target.value)}
+              />
             </div>
-          ) : (
-            <p className="text-gray-500">No hay cupos disponibles.</p>
-          )}
+            {loading ? (
+              <div className="flex justify-center items-center py-4">
+                <ClipLoader color="#2563EB" loading={loading} size={50} />
+              </div>
+            ) : selectedDate ? (
+              filteredPlaces.length > 0 ? (
+                <ScheduleList
+                  filteredPlaces={filteredPlaces}
+                  handleAssign={handleAssign}
+                />
+              ) : (
+                <p className="text-gray-500">
+                  No hay cupos disponibles para la fecha seleccionada.
+                </p>
+              )
+            ) : (
+              <p className="text-gray-500">
+                Selecciona una fecha para ver los cupos disponibles.
+              </p>
+            )}
+          </div>
         </div>
       </section>
     </Layout>
@@ -101,8 +118,8 @@ function PlacesList({ places, getPlaces, assignStudentToPlace, user }) {
 }
 
 const mapStateToProps = (state) => ({
-  places: state.places?.places || [], // Asegurar que el estado esté inicializado
-  user: state.auth.user || [],
+  places: state.places?.places || [],
+  user: state.auth.user || null,
 });
 
 export default connect(mapStateToProps, { getPlaces, assignStudentToPlace })(
