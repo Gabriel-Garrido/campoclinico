@@ -64,7 +64,7 @@ const FilterPanel = ({
       const hasAvailablePlaces = filteredPlaces.some(
         (place) => place.date === dateStr && place.is_place_available
       );
-      return hasAvailablePlaces ? "bg-green-200 text-green-900" : null;
+      return hasAvailablePlaces ? "bg-green-200 text-green-500" : null;
     }
     return null;
   };
@@ -77,7 +77,7 @@ const FilterPanel = ({
         value={selectedInstitution}
         onChange={(institution) => {
           setSelectedInstitution(institution);
-          setSelectedUnit(null); // Resetear la unidad al cambiar la institución
+          setSelectedUnit(""); // Resetear la unidad al cambiar la institución
         }}
         placeholder="Filtrar por institución"
         isClearable

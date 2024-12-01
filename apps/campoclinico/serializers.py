@@ -67,3 +67,9 @@ class ClinicFieldPlacesSerializer(serializers.ModelSerializer):
     class Meta:
         model = ClinicFieldPlaces
         fields = '__all__'
+        
+class ClinicFieldPlacesSerializerPost(serializers.ModelSerializer):
+
+    class Meta:
+        model = ClinicFieldPlaces
+        fields = '__all__'

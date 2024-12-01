@@ -5,14 +5,21 @@ import { getPlaces, assignStudentToPlace } from "redux/actions/places/places";
 import { ClipLoader } from "react-spinners";
 import FilterPanel from "../../components/placesList/FilterPanel";
 import ScheduleList from "../../components/placesList/ScheduleList";
+import PlaceForm from "../../components/placesList/PlaceForm";
+import StudentListDrawer from "../../components/placesList/StudentListDrawer";
+import { FaChevronDown } from "react-icons/fa";
+import { FaChevronUp } from "react-icons/fa";
+
 
 function PlacesList({ places, getPlaces, assignStudentToPlace, user }) {
-  const [studentId, setStudentId] = useState("");
   const [loading, setLoading] = useState(true);
   const [selectedDate, setSelectedDate] = useState(null);
   const [filteredPlaces, setFilteredPlaces] = useState([]);
   const [selectedInstitution, setSelectedInstitution] = useState(null);
-  const [selectedUnit, setSelectedUnit] = useState(null); // Asegúrate de definirlo aquí
+  const [selectedUnit, setSelectedUnit] = useState("");
+  const [drawerVisible, setDrawerVisible] = useState(false); // Controla la visibilidad del drawer
+  const [selectedPlace, setSelectedPlace] = useState(null); // Cupo seleccionado
+  const [formVisible, setFormVisible] = useState(false); // Controla la visibilidad del formulario
 
   useEffect(() => {
     const fetchPlaces = async () => {
@@ -42,7 +49,7 @@ function PlacesList({ places, getPlaces, assignStudentToPlace, user }) {
               place.ClinicFieldUnity.ClinicFieldIntitution.id ===
                 selectedInstitution.value) &&
             (!selectedUnit ||
-              place.ClinicFieldUnity.id === selectedUnit.value) // Filtrar por unidad seleccionada
+              place.ClinicFieldUnity.id === selectedUnit.value)
         )
       );
     } else {
@@ -50,19 +57,19 @@ function PlacesList({ places, getPlaces, assignStudentToPlace, user }) {
     }
   }, [selectedDate, selectedInstitution, selectedUnit, places]);
 
-  const handleAssign = async (placeId) => {
-    if (studentId) {
-      try {
-        await assignStudentToPlace(placeId, studentId);
-        setStudentId("");
-        getPlaces(user.university);
-      } catch (error) {
-        console.error("Error al asignar estudiante:", error);
-      }
-    } else {
-      alert("Por favor, ingrese un ID de estudiante antes de asignar.");
-    }
+  const handleAssign = (place) => {
+    setSelectedPlace(place); // Configura el cupo seleccionado
+    setDrawerVisible(true); // Abre el drawer
   };
+
+  const handleCloseDrawer = () => {
+    setDrawerVisible(false);
+    setSelectedPlace(null); // Limpia el cupo seleccionado
+  };
+
+  console.log('selectedUnit');
+  console.log(selectedUnit.value);
+  
 
   return (
     <Layout>
@@ -74,22 +81,34 @@ function PlacesList({ places, getPlaces, assignStudentToPlace, user }) {
             setSelectedDate={setSelectedDate}
             selectedInstitution={selectedInstitution}
             setSelectedInstitution={setSelectedInstitution}
-            selectedUnit={selectedUnit} // Pasa el estado de unidad
-            setSelectedUnit={setSelectedUnit} // Pasa la función actualizadora
+            selectedUnit={selectedUnit}
+            setSelectedUnit={setSelectedUnit}
             places={places}
           />
 
           {/* Lista de Cupos */}
           <div className="col-span-2">
-            <div className="mb-4">
-              <input
-                type="text"
-                className="border p-2 rounded w-full"
-                placeholder="Ingrese ID de estudiante"
-                value={studentId}
-                onChange={(e) => setStudentId(e.target.value)}
-              />
+            <div className="col-span-1 mb-4">
+              {selectedDate && (
+                <div className="flex mb-4">
+                  <h2 className="text-xl font-bold">Crear Cupo</h2>
+                <button
+                  onClick={() => setFormVisible(!formVisible)}
+                  className=" px-4 rounded hover:bg-blue-100"
+                >
+                  {formVisible ? <FaChevronUp /> : <FaChevronDown />}
+                </button>
+                </div>
+              )}
+              {formVisible && (
+                <PlaceForm
+                  selectedDate={selectedDate}
+                  selectedUnit={selectedUnit.value}
+                  onPlaceCreated={(newPlace) => getPlaces(user.university)}
+                />
+              )}
             </div>
+
             {loading ? (
               <div className="flex justify-center items-center py-4">
                 <ClipLoader color="#2563EB" loading={loading} size={50} />
@@ -98,7 +117,7 @@ function PlacesList({ places, getPlaces, assignStudentToPlace, user }) {
               filteredPlaces.length > 0 ? (
                 <ScheduleList
                   filteredPlaces={filteredPlaces}
-                  handleAssign={handleAssign}
+                  handleAssign={handleAssign} // Llama a handleAssign para abrir el drawer
                 />
               ) : (
                 <p className="text-gray-500">
@@ -113,6 +132,15 @@ function PlacesList({ places, getPlaces, assignStudentToPlace, user }) {
           </div>
         </div>
       </section>
+
+      {/* Drawer para mostrar estudiantes */}
+      <StudentListDrawer
+        visible={drawerVisible}
+        onClose={handleCloseDrawer}
+        selectedPlace={selectedPlace}
+        assignStudentToPlace={assignStudentToPlace}
+        refreshPlaces={() => getPlaces(user.university)}
+      />
     </Layout>
   );
 }

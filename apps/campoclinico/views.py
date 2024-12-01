@@ -116,6 +116,22 @@ class ClinicFieldPlacesView(APIView):
         serializer = ClinicFieldPlacesSerializer(results, many=True)
         return paginator.get_paginated_response({'places': serializer.data})
 
+    def post(self, request):
+        """
+        Método para crear un nuevo ClinicFieldPlace.
+        """
+        serializer = ClinicFieldPlacesSerializerPost(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(
+                {"message": "Cupo creado correctamente", "place": serializer.data},
+                status=status.HTTP_201_CREATED
+            )
+        return Response(
+            {"error": "Error al crear el cupo", "details": serializer.errors},
+            status=status.HTTP_400_BAD_REQUEST
+        )
+
 class PlacesByUniversityView(APIView):
     """
     Vista para obtener los cupos asociados a una universidad específica.
@@ -197,3 +213,52 @@ class TestApiView(APIView):
     def get(self, request):
         data = {"message": "API funcionando correctamente"}
         return Response(data, status=status.HTTP_200_OK)
+
+class StudentsBySubjectView(APIView):
+    """
+    Vista para obtener estudiantes que pertenecen a un ramo específico.
+    """
+    def get(self, request, subject_id):
+        try:
+            # Filtrar estudiantes que están inscritos en el semestre del ramo
+            students = Student.objects.filter(semester__subject__id=subject_id)
+            
+            # Serializar los estudiantes
+            serializer = StudentSerializer(students, many=True)
+            
+            return Response({"students": serializer.data}, status=status.HTTP_200_OK)
+        except Subject.DoesNotExist:
+            return Response(
+                {"error": "Ramo no encontrado."},
+                status=status.HTTP_404_NOT_FOUND
+            )
+            
+class SubjectsByUniversityView(APIView):
+    """
+    Vista para obtener las asignaturas (subjects) asociadas a una universidad específica.
+    """
+    def get(self, request, university_id):
+        try:
+            # Validar que la universidad existe
+            university = University.objects.get(pk=university_id)
+            
+            # Filtrar las asignaturas por la universidad
+            subjects = Subject.objects.filter(
+                semester__career__university=university
+            ).distinct()
+
+            # Serializar las asignaturas
+            serializer = SubjectSerializer(subjects, many=True)
+
+            return Response({"subjects": serializer.data}, status=status.HTTP_200_OK)
+
+        except University.DoesNotExist:
+            return Response(
+                {"error": "Universidad no encontrada."},
+                status=status.HTTP_404_NOT_FOUND
+            )
+        except Exception as e:
+            return Response(
+                {"error": "Ha ocurrido un error inesperado.", "details": str(e)},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )

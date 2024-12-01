@@ -31,3 +31,10 @@ export const get_students = () => async (dispatch) => {
         })
     }
 }
+
+export const getStudentsBySubject = async (subjectId) => {
+    const res = await axios.get(
+      `${process.env.REACT_APP_API_URL}/students/by_subject/${subjectId}/`
+    );
+    return res.data;
+  };
