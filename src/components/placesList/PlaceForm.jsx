@@ -107,7 +107,7 @@ const PlaceForm = ({ createPlace, onPlaceCreated, selectedDate, selectedUnit, us
         end_time: "",
         is_place_available: true,
         observation: "",
-        subject: null,
+        subject: "",
         number_of_places: 1,
       });
       setError(null);

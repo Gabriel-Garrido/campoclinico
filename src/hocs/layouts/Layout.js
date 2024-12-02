@@ -17,8 +17,10 @@ function Layout({ children, isAuthenticated, user, loadUser, refreshAccessToken 
 
   return (
     <div>
-      <Navbar />
+    <Navbar />
+    <div className="mb-18 mt-0">
       {children}
+    </div>
       <Footer />
     </div>
   );
