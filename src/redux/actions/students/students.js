@@ -33,8 +33,13 @@ export const get_students = () => async (dispatch) => {
 }
 
 export const getStudentsBySubject = async (subjectId) => {
-    const res = await axios.get(
-      `${process.env.REACT_APP_API_URL}/students/by_subject/${subjectId}/`
-    );
-    return res.data;
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/api/campoclinico/students_by_subject/${subjectId}/`
+      );
+      return response.data.students;
+    } catch (error) {
+      console.error("Error al obtener estudiantes:", error);
+      throw error;
+    }
   };

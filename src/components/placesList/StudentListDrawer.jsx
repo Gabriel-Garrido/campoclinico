@@ -6,6 +6,7 @@ function StudentListDrawer({ visible, onClose, selectedPlace, assignStudentToPla
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    
     const fetchStudents = async () => {
       if (selectedPlace) {
         setLoading(true);
@@ -47,17 +48,19 @@ function StudentListDrawer({ visible, onClose, selectedPlace, assignStudentToPla
         {loading ? (
           <p>Cargando estudiantes...</p>
         ) : (
+          <div>
           <ul className="space-y-2">
             {students.map((student) => (
               <li
-                key={student.id}
-                className="p-2 border rounded hover:bg-gray-100 cursor-pointer"
-                onClick={() => handleAssign(student.id)}
+              key={student.id}
+              className="p-2 border rounded hover:bg-gray-100 cursor-pointer"
+              onClick={() => handleAssign(student.id)}
               >
                 {student.name} {student.last_name}
               </li>
             ))}
           </ul>
+            </div>
         )}
       </div>
     </div>

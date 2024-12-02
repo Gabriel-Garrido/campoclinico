@@ -28,7 +28,7 @@ export const getPlaces = (university) => async (dispatch) => {
 // Action to assign a student to a place
 export const assignStudentToPlace = (place_id, student_id) => async (dispatch) => {
     try {
-        const res = await axios.post(`${process.env.REACT_APP_API_URL}/places/assign/`, {
+        const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/campoclinico/places/assign/`, {
             place_id,
             student_id,
         });

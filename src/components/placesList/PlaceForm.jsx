@@ -10,7 +10,7 @@ const PlaceForm = ({ createPlace, onPlaceCreated, selectedDate, selectedUnit, us
     end_time: "",
     is_place_available: true,
     observation: "",
-    subject: null,
+    subject: "",
     number_of_places: 1, // Nuevo campo para el número de cupos
   });
 
@@ -43,7 +43,7 @@ const PlaceForm = ({ createPlace, onPlaceCreated, selectedDate, selectedUnit, us
   useEffect(() => {
     fetchSubjects(user, setLoadingSubjects, setSubjects, setError);
     console.log("user en placeform:", user);
-  }, []); // Ejecutar cuando `user` cambie
+  }, [selectedUnit]); // Ejecutar cuando `user` cambie
 
   const handleChange = (e) => {
     const value = e.target.name === "number_of_places" ? Number(e.target.value) : e.target.value; // Asegurarse de que `number_of_places` sea un número

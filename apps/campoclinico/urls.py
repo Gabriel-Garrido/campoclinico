@@ -14,4 +14,7 @@ urlpatterns = [
     path('careers/search/', SearchCareerView.as_view(), name='search_careers'),
     path('test-api/', TestApiView.as_view(), name='test_api'),
     path('students/by_subject/<int:subject_id>/', StudentsBySubjectView.as_view(), name='students_by_subject'),
-    path('subjects_by_university/<int:university_id>/', SubjectsByUniversityView.as_view(), name='subjects_by_university'),]
+    path('subjects_by_university/<int:university_id>/', SubjectsByUniversityView.as_view(), name='subjects_by_university'),
+    path('students_by_subject/<int:subject_id>/', GetStudentsBySubjectView.as_view(), name='students_by_subject'),
+        
+    ]

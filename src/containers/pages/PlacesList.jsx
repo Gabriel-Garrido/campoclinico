@@ -69,6 +69,9 @@ function PlacesList({ places, getPlaces, assignStudentToPlace, user }) {
 
   console.log('selectedUnit');
   console.log(selectedUnit.value);
+
+  console.log('selectedPlace');
+  console.log(selectedPlace);
   
 
   return (

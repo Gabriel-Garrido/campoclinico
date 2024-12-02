@@ -20,7 +20,7 @@ const GroupedPlaces = ({ timeRange, places, handleAssign }) => (
           </p>
           {place.is_place_available && (
             <button
-              onClick={() => handleAssign(place.id)}
+              onClick={() => handleAssign(place)}
               className="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
             >
               Asignar estudiante

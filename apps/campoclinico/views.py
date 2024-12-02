@@ -262,3 +262,18 @@ class SubjectsByUniversityView(APIView):
                 {"error": "Ha ocurrido un error inesperado.", "details": str(e)},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
+            
+class GetStudentsBySubjectView(APIView):
+    def get(self, request, subject_id):
+        try:
+            subject = Subject.objects.get(id=subject_id)
+            students = Student.objects.filter(semester=subject.semester)
+            serialized_students = [
+                {"id": student.id, "name": student.name, "last_name": student.last_name}
+                for student in students
+            ]
+            return Response({"students": serialized_students}, status=status.HTTP_200_OK)
+        except Subject.DoesNotExist:
+            return Response({"error": "El ramo no existe."}, status=status.HTTP_404_NOT_FOUND)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
