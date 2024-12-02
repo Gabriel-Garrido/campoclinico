@@ -11,6 +11,7 @@ const PlaceForm = ({ createPlace, onPlaceCreated, selectedDate, selectedUnit, us
     is_place_available: true,
     observation: "",
     subject: null,
+    number_of_places: 1, // Nuevo campo para el número de cupos
   });
 
   const [subjects, setSubjects] = useState([]); // Lista de asignaturas disponibles
@@ -21,7 +22,6 @@ const PlaceForm = ({ createPlace, onPlaceCreated, selectedDate, selectedUnit, us
     if (user?.university) {
       setLoadingSubjects(true);
       try {
-        // Ajusta la URL para que coincida con la ruta correcta
         const response = await axios.get(
           `${process.env.REACT_APP_API_URL}/api/campoclinico/subjects_by_university/${user.university}/`
         );
@@ -46,9 +46,10 @@ const PlaceForm = ({ createPlace, onPlaceCreated, selectedDate, selectedUnit, us
   }, []); // Ejecutar cuando `user` cambie
 
   const handleChange = (e) => {
+    const value = e.target.name === "number_of_places" ? Number(e.target.value) : e.target.value; // Asegurarse de que `number_of_places` sea un número
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [e.target.name]: value,
     });
   };
 
@@ -62,6 +63,7 @@ const PlaceForm = ({ createPlace, onPlaceCreated, selectedDate, selectedUnit, us
     if (formData.start_time >= formData.end_time) {
       return "La hora de inicio debe ser anterior a la hora de término.";
     }
+    if (formData.number_of_places < 1) return "El número de cupos debe ser al menos 1.";
     return null;
   };
 
@@ -80,19 +82,25 @@ const PlaceForm = ({ createPlace, onPlaceCreated, selectedDate, selectedUnit, us
     }
   
     try {
-      const newPlace = {
-        ...formData,
-        subject: Number(formData.subject), // Convertir subject a número
-        date: selectedDate.toISOString().split("T")[0],
-        ClinicFieldUnity: Number(selectedUnit), // Convertir selectedUnit a número
-      };
+      const placesToCreate = [];
+      for (let i = 0; i < formData.number_of_places; i++) {
+        placesToCreate.push({
+          ...formData,
+          subject: Number(formData.subject), // Convertir subject a número
+          date: selectedDate.toISOString().split("T")[0],
+          ClinicFieldUnity: Number(selectedUnit), // Convertir selectedUnit a número
+        });
+      }
+
+      console.log("Datos enviados a la API:", placesToCreate);
+
+      for (const place of placesToCreate) {
+        await createPlace(place); // Crear cada lugar
+      }
   
-      console.log("Datos enviados a la API:", newPlace);
-  
-      const createdPlace = await createPlace(newPlace);
-      onPlaceCreated(createdPlace);
-  
-      // Resetear formulario después de crear el cupo
+      onPlaceCreated(); // Llama a la función callback
+
+      // Resetear formulario después de crear los cupos
       setFormData({
         teacher_name: "",
         start_time: "",
@@ -100,19 +108,15 @@ const PlaceForm = ({ createPlace, onPlaceCreated, selectedDate, selectedUnit, us
         is_place_available: true,
         observation: "",
         subject: null,
+        number_of_places: 1,
       });
       setError(null);
     } catch (error) {
-      console.error("Error al crear el cupo:", error);
-      setError("Hubo un error al intentar crear el cupo. Por favor, inténtelo nuevamente.");
+      console.error("Error al crear los cupos:", error);
+      setError("Hubo un error al intentar crear los cupos. Por favor, inténtelo nuevamente.");
     }
   };
-  
 
-  console.log('selectedUnit.value en form');
-  console.log(selectedUnit);
-  
-  
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       {error && <p className="text-red-500">{error}</p>}
@@ -169,6 +173,16 @@ const PlaceForm = ({ createPlace, onPlaceCreated, selectedDate, selectedUnit, us
         onChange={handleChange}
         className="border p-2 rounded w-full"
       />
+      <input
+        type="number"
+        name="number_of_places"
+        placeholder="Número de cupos"
+        value={formData.number_of_places}
+        onChange={handleChange}
+        required
+        className="border p-2 rounded w-full"
+        min="1"
+      />
       <button
         type="submit"
         className={`bg-blue-500 text-white px-4 py-2 rounded ${
@@ -178,7 +192,7 @@ const PlaceForm = ({ createPlace, onPlaceCreated, selectedDate, selectedUnit, us
         }`}
         disabled={!selectedDate || !selectedUnit || !formData.subject}
       >
-        Crear Cupo
+        Crear Cupos
       </button>
     </form>
   );
