@@ -1,7 +1,9 @@
 import axios from 'axios'
 import {
     GET_STUDENTS_FAIL,
-    GET_STUDENTS_SUCCESS
+    GET_STUDENTS_SUCCESS,
+    CREATE_STUDENT_SUCCESS,
+    CREATE_STUDENT_FAIL
 } from './types'
 
 export const get_students = () => async (dispatch) => {
@@ -41,5 +43,32 @@ export const getStudentsBySubject = async (subjectId) => {
     } catch (error) {
       console.error("Error al obtener estudiantes:", error);
       throw error;
+    }
+  };
+
+export const createStudent = (studentData) => async (dispatch) => {
+    try {
+      const res = await axios.post(
+        `${process.env.REACT_APP_API_URL}/api/campoclinico/students/`,
+        studentData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+  
+      dispatch({
+        type: CREATE_STUDENT_SUCCESS,
+        payload: res.data.place,
+      });
+  
+      return res.data; // Retornar datos creados si es necesario
+    } catch (err) {
+      console.error("Error al crear el estudiante:", err);
+      dispatch({
+        type: CREATE_STUDENT_FAIL,
+      });
+      throw err;
     }
   };

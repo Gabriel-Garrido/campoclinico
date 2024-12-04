@@ -16,7 +16,7 @@ function StudentList() {
   return (
     <Layout>
 
-      <section className="bg-white py-8">
+      <section className="bg-white mb-28 py-8">
         <div className="px-4 mx-auto max-w-screen-xl">
           <h1 className="mb-6 text-2xl font-bold text-gray-800">
             Lista de Estudiantes

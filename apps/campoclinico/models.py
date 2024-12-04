@@ -16,13 +16,16 @@ class Career(models.Model):
     duration_years = models.PositiveIntegerField()
     
     def __str__(self):
-        return self.career_name
+        return f'{self.career_name} {self.university.university_name}'
     
 class Semester(models.Model):
     semester_number = models.PositiveIntegerField() 
     career = models.ForeignKey(Career, on_delete=models.CASCADE)
     career_year = models.PositiveIntegerField()  #'hace referencia al año de la carrera en que esta el semestre, ej: '1, 2,3, etc' , por ejemplo el tercer semestre es del año 2
     academic_year = models.PositiveIntegerField() #hace reerencia al año segun calendario, ej '2024, 2025, etc'
+    
+    def __str__(self):
+        return f'{self.semester_number} {self.career.career_name}'
     
 class Subject(models.Model):
     INTERNSHIP_CHOICES = [
@@ -34,6 +37,9 @@ class Subject(models.Model):
     semester = models.ForeignKey(Semester, on_delete=models.CASCADE)
     type_of_internship = models.CharField(max_length=30, choices=INTERNSHIP_CHOICES, default=None)
     total_required_hours = models.FloatField(null=False)
+    
+    def __str__(self):
+        return f'{self.subject_name}'
     
 class Student(models.Model):
     
@@ -64,10 +70,16 @@ class ClinicFieldIntitution(models.Model):
     clinic_field_rut = models.CharField(max_length=50, unique=False)
     clinic_field_razon_social = models.CharField(max_length=50, unique=False)
     is_clinic_field_agreement_active = models.BooleanField(default=True, null=False)
+    
+    def __str__(self):
+        return f'{self.intitution_name} | sede: {self.institution_branch_name}'
         
 class ClinicFieldUnity(models.Model):
     ClinicFieldUnity_name = models.CharField(max_length=50, unique=False)
     ClinicFieldIntitution = models.ForeignKey(ClinicFieldIntitution, on_delete=models.CASCADE, null=False)
+    
+    def __str__(self):
+        return f'{self.ClinicFieldUnity_name} {self.ClinicFieldIntitution.intitution_name}'
     
     
 class ClinicFieldPlaces(models.Model):
@@ -81,4 +93,7 @@ class ClinicFieldPlaces(models.Model):
     is_student_attended = models.BooleanField(null=True, default=None)   #asistencia del alumno
     is_place_available = models.BooleanField(null=True, default=None)   #disponibilidad del cupo, False puede ser porque ya esta inscrito un alumno o por motivos del campo clinico, por ejemplo 'pabellon esta cerrado'
     observation = models.CharField(max_length=50, unique=False)   
+    
+    def __str__(self):
+        return f'{self.date} | {self.start_time} - {self.end_time}'
     
