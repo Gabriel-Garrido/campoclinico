@@ -16,10 +16,10 @@ const FilterPanel = ({
   const institutions = [
     ...new Map(
       places.map((place) => [
-        place.ClinicFieldUnity.ClinicFieldIntitution.id,
+        place.ClinicFieldUnity.ClinicFieldInstitution.id,
         {
-          value: place.ClinicFieldUnity.ClinicFieldIntitution.id,
-          label: place.ClinicFieldUnity.ClinicFieldIntitution.intitution_name,
+          value: place.ClinicFieldUnity.ClinicFieldInstitution.id,
+          label: place.ClinicFieldUnity.ClinicFieldInstitution.institution_name,
         },
       ])
     ).values(),
@@ -32,7 +32,7 @@ const FilterPanel = ({
           places
             .filter(
               (place) =>
-                place.ClinicFieldUnity.ClinicFieldIntitution.id ===
+                place.ClinicFieldUnity.ClinicFieldInstitution.id ===
                 selectedInstitution.value
             )
             .map((place) => [
@@ -51,7 +51,7 @@ const FilterPanel = ({
     selectedInstitution && selectedUnit
       ? places.filter(
           (place) =>
-            place.ClinicFieldUnity.ClinicFieldIntitution.id ===
+            place.ClinicFieldUnity.ClinicFieldInstitution.id ===
               selectedInstitution.value &&
             place.ClinicFieldUnity.id === selectedUnit.value
         )

@@ -16,7 +16,7 @@ class StudentView(APIView):
         return paginator.get_paginated_response({'students': serializer.data})
 
     def post(self, request):
-        serializer = StudentSerializer(data=request.data)
+        serializer = StudentPostSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(
@@ -277,3 +277,23 @@ class GetStudentsBySubjectView(APIView):
             return Response({"error": "El ramo no existe."}, status=status.HTTP_404_NOT_FOUND)
         except Exception as e:
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        
+class CareersByUniversityView(APIView):
+    def get(self, request, university_id):
+        careers = Career.objects.filter(university_id=university_id)
+        serializer = CareerSerializer(careers, many=True)
+        return Response({"careers": serializer.data}, status=status.HTTP_200_OK)
+
+
+class SemestersByCareerView(APIView):
+    def get(self, request, career_id):
+        semesters = Semester.objects.filter(career_id=career_id)
+        serializer = SemesterSerializer(semesters, many=True)
+        return Response({"semesters": serializer.data}, status=status.HTTP_200_OK)
+
+
+class StudentsByCareerSemesterView(APIView):
+    def get(self, request, career_id, semester_id):
+        students = Student.objects.filter(career_id=career_id, semester_id=semester_id)
+        serializer = StudentSerializer(students, many=True)
+        return Response({"students": serializer.data}, status=status.HTTP_200_OK)

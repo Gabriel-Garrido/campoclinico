@@ -1,0 +1,722 @@
+[
+    {
+        "model": "campoclinico.student",
+        "pk": 1,
+        "fields": {
+            "name": "Sofía",
+            "last_name": "González",
+            "second_last_name": "Pérez",
+            "rut": "18.123.456-7",
+            "phone": "987654321",
+            "email": "sofia.gonzalez@uchile.cl",
+            "emergency_name": "María Pérez",
+            "emergency_number": "987654321",
+            "student_address": "Av. Salvador 1520, Providencia",
+            "observation": "",
+            "semester": 1,
+            "career": 1
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 2,
+        "fields": {
+            "name": "Matías",
+            "last_name": "López",
+            "second_last_name": "Ramírez",
+            "rut": "19.876.543-2",
+            "phone": "912345678",
+            "email": "matias.lopez@uc.cl",
+            "emergency_name": "Juan Ramírez",
+            "emergency_number": "912345678",
+            "student_address": "Alameda 123, Santiago",
+            "observation": "",
+            "semester": 2,
+            "career": 2
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 3,
+        "fields": {
+            "name": "Isidora",
+            "last_name": "Paredes",
+            "second_last_name": "Mena",
+            "rut": "20.123.456-5",
+            "phone": "986543210",
+            "email": "isidora.paredes@udec.cl",
+            "emergency_name": "Claudia Mena",
+            "emergency_number": "986543210",
+            "student_address": "Barrio Universitario, Concepción",
+            "observation": "",
+            "semester": 1,
+            "career": 3
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 4,
+        "fields": {
+            "name": "Benjamín",
+            "last_name": "Torres",
+            "second_last_name": "Soto",
+            "rut": "21.654.987-0",
+            "phone": "965432189",
+            "email": "benjamin.torres@uchile.cl",
+            "emergency_name": "Carla Soto",
+            "emergency_number": "965432189",
+            "student_address": "Av. Salvador 1200, Providencia",
+            "observation": "",
+            "semester": 2,
+            "career": 4
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 5,
+        "fields": {
+            "name": "Camila",
+            "last_name": "Rojas",
+            "second_last_name": "Fernández",
+            "rut": "22.345.678-1",
+            "phone": "974123678",
+            "email": "camila.rojas@uc.cl",
+            "emergency_name": "Patricia Fernández",
+            "emergency_number": "974123678",
+            "student_address": "Av. Marcoleta 456, Santiago",
+            "observation": "",
+            "semester": 1,
+            "career": 5
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 6,
+        "fields": {
+            "name": "Joaquín",
+            "last_name": "Vargas",
+            "second_last_name": "Gómez",
+            "rut": "23.876.543-4",
+            "phone": "934567890",
+            "email": "joaquin.vargas@udec.cl",
+            "emergency_name": "Rodrigo Gómez",
+            "emergency_number": "934567890",
+            "student_address": "Barrio Universitario, Concepción",
+            "observation": "",
+            "semester": 2,
+            "career": 3
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 7,
+        "fields": {
+            "name": "Antonia",
+            "last_name": "Martínez",
+            "second_last_name": "Araya",
+            "rut": "24.987.654-3",
+            "phone": "912345987",
+            "email": "antonia.martinez@uchile.cl",
+            "emergency_name": "Sergio Araya",
+            "emergency_number": "912345987",
+            "student_address": "Av. Salvador 1600, Providencia",
+            "observation": "",
+            "semester": 1,
+            "career": 2
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 8,
+        "fields": {
+            "name": "Diego",
+            "last_name": "Fuentes",
+            "second_last_name": "Navarro",
+            "rut": "25.654.321-6",
+            "phone": "987654123",
+            "email": "diego.fuentes@uc.cl",
+            "emergency_name": "Francisca Navarro",
+            "emergency_number": "987654123",
+            "student_address": "Alameda 500, Santiago",
+            "observation": "",
+            "semester": 2,
+            "career": 4
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 9,
+        "fields": {
+            "name": "Valentina",
+            "last_name": "Morales",
+            "second_last_name": "Vega",
+            "rut": "26.789.012-8",
+            "phone": "965432123",
+            "email": "valentina.morales@udec.cl",
+            "emergency_name": "Ana Vega",
+            "emergency_number": "965432123",
+            "student_address": "Barrio Universitario, Concepción",
+            "observation": "",
+            "semester": 1,
+            "career": 5
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 10,
+        "fields": {
+            "name": "Tomás",
+            "last_name": "Álvarez",
+            "second_last_name": "Silva",
+            "rut": "27.345.678-9",
+            "phone": "954321098",
+            "email": "tomas.alvarez@uchile.cl",
+            "emergency_name": "Pedro Silva",
+            "emergency_number": "954321098",
+            "student_address": "Av. Salvador 1000, Providencia",
+            "observation": "",
+            "semester": 2,
+            "career": 1
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 11,
+        "fields": {
+            "name": "Francisca",
+            "last_name": "Espinoza",
+            "second_last_name": "Pizarro",
+            "rut": "28.654.321-0",
+            "phone": "912348765",
+            "email": "francisca.espinoza@uc.cl",
+            "emergency_name": "Mónica Pizarro",
+            "emergency_number": "912348765",
+            "student_address": "Alameda 400, Santiago",
+            "observation": "",
+            "semester": 1,
+            "career": 2
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 12,
+        "fields": {
+            "name": "Sebastián",
+            "last_name": "Reyes",
+            "second_last_name": "Carrasco",
+            "rut": "29.876.543-2",
+            "phone": "987654234",
+            "email": "sebastian.reyes@udec.cl",
+            "emergency_name": "Carlos Carrasco",
+            "emergency_number": "987654234",
+            "student_address": "Barrio Universitario, Concepción",
+            "observation": "",
+            "semester": 2,
+            "career": 3
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 13,
+        "fields": {
+            "name": "Catalina",
+            "last_name": "Salazar",
+            "second_last_name": "Muñoz",
+            "rut": "30.123.456-7",
+            "phone": "965432345",
+            "email": "catalina.salazar@uchile.cl",
+            "emergency_name": "Laura Muñoz",
+            "emergency_number": "965432345",
+            "student_address": "Av. Salvador 1100, Providencia",
+            "observation": "",
+            "semester": 1,
+            "career": 5
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 14,
+        "fields": {
+            "name": "Ignacio",
+            "last_name": "Valdés",
+            "second_last_name": "Ortiz",
+            "rut": "31.987.654-8",
+            "phone": "987654567",
+            "email": "ignacio.valdes@uc.cl",
+            "emergency_name": "Marta Ortiz",
+            "emergency_number": "987654567",
+            "student_address": "Alameda 700, Santiago",
+            "observation": "",
+            "semester": 2,
+            "career": 4
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 15,
+        "fields": {
+            "name": "Renata",
+            "last_name": "Bravo",
+            "second_last_name": "Figueroa",
+            "rut": "32.345.678-1",
+            "phone": "943216789",
+            "email": "renata.bravo@udec.cl",
+            "emergency_name": "Teresa Figueroa",
+            "emergency_number": "943216789",
+            "student_address": "Barrio Universitario, Concepción",
+            "observation": "",
+            "semester": 1,
+            "career": 1
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 16,
+        "fields": {
+            "name": "Gabriel",
+            "last_name": "Sandoval",
+            "second_last_name": "Zúñiga",
+            "rut": "33.456.789-9",
+            "phone": "954321654",
+            "email": "gabriel.sandoval@uchile.cl",
+            "emergency_name": "Luis Zúñiga",
+            "emergency_number": "954321654",
+            "student_address": "Av. Salvador 1300, Providencia",
+            "observation": "",
+            "semester": 2,
+            "career": 2
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 17,
+        "fields": {
+            "name": "Josefa",
+            "last_name": "Navarrete",
+            "second_last_name": "Cortés",
+            "rut": "34.567.890-0",
+            "phone": "987654876",
+            "email": "josefa.navarrete@uc.cl",
+            "emergency_name": "Paula Cortés",
+            "emergency_number": "987654876",
+            "student_address": "Alameda 800, Santiago",
+            "observation": "",
+            "semester": 1,
+            "career": 3
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 18,
+        "fields": {
+            "name": "Felipe",
+            "last_name": "Carrillo",
+            "second_last_name": "Tapia",
+            "rut": "35.678.901-1",
+            "phone": "965432876",
+            "email": "felipe.carrillo@udec.cl",
+            "emergency_name": "Carmen Tapia",
+            "emergency_number": "965432876",
+            "student_address": "Barrio Universitario, Concepción",
+            "observation": "",
+            "semester": 2,
+            "career": 5
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 19,
+        "fields": {
+            "name": "Amanda",
+            "last_name": "Pino",
+            "second_last_name": "Riquelme",
+            "rut": "36.789.012-3",
+            "phone": "965432654",
+            "email": "amanda.pino@uchile.cl",
+            "emergency_name": "Eduardo Riquelme",
+            "emergency_number": "965432654",
+            "student_address": "Av. Salvador 1400, Providencia",
+            "observation": "",
+            "semester": 1,
+            "career": 4
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 20,
+        "fields": {
+            "name": "Lucas",
+            "last_name": "Saavedra",
+            "second_last_name": "Herrera",
+            "rut": "37.890.123-4",
+            "phone": "987654321",
+            "email": "lucas.saavedra@uc.cl",
+            "emergency_name": "Andrea Herrera",
+            "emergency_number": "987654321",
+            "student_address": "Alameda 900, Santiago",
+            "observation": "",
+            "semester": 2,
+            "career": 1
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 21,
+        "fields": {
+            "name": "Emilia",
+            "last_name": "Castro",
+            "second_last_name": "Vidal",
+            "rut": "38.123.456-7",
+            "phone": "932145678",
+            "email": "emilia.castro@uchile.cl",
+            "emergency_name": "Claudia Vidal",
+            "emergency_number": "932145678",
+            "student_address": "Calle Lira 1520, Santiago",
+            "observation": "",
+            "semester": 1,
+            "career": 2
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 22,
+        "fields": {
+            "name": "Javier",
+            "last_name": "Gutiérrez",
+            "second_last_name": "Mendoza",
+            "rut": "39.987.654-3",
+            "phone": "945672310",
+            "email": "javier.gutierrez@uc.cl",
+            "emergency_name": "Andrea Mendoza",
+            "emergency_number": "945672310",
+            "student_address": "Av. Ossa 1234, Santiago",
+            "observation": "",
+            "semester": 2,
+            "career": 4
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 23,
+        "fields": {
+            "name": "Laura",
+            "last_name": "Navarro",
+            "second_last_name": "Cáceres",
+            "rut": "40.456.789-1",
+            "phone": "912345876",
+            "email": "laura.navarro@udec.cl",
+            "emergency_name": "Cristina Cáceres",
+            "emergency_number": "912345876",
+            "student_address": "Barrio Universitario, Concepción",
+            "observation": "",
+            "semester": 1,
+            "career": 3
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 24,
+        "fields": {
+            "name": "Nicolás",
+            "last_name": "Peña",
+            "second_last_name": "Alarcón",
+            "rut": "41.234.567-8",
+            "phone": "987654987",
+            "email": "nicolas.pena@uchile.cl",
+            "emergency_name": "Felipe Alarcón",
+            "emergency_number": "987654987",
+            "student_address": "Calle Salvador 1300, Santiago",
+            "observation": "",
+            "semester": 2,
+            "career": 5
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 25,
+        "fields": {
+            "name": "Martina",
+            "last_name": "Muñoz",
+            "second_last_name": "Cifuentes",
+            "rut": "42.345.678-9",
+            "phone": "987654765",
+            "email": "martina.munoz@uc.cl",
+            "emergency_name": "Patricia Cifuentes",
+            "emergency_number": "987654765",
+            "student_address": "Av. Marcoleta 234, Santiago",
+            "observation": "",
+            "semester": 1,
+            "career": 1
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 26,
+        "fields": {
+            "name": "Andrés",
+            "last_name": "Mora",
+            "second_last_name": "Riquelme",
+            "rut": "43.567.890-0",
+            "phone": "954321234",
+            "email": "andres.mora@udec.cl",
+            "emergency_name": "Mónica Riquelme",
+            "emergency_number": "954321234",
+            "student_address": "Barrio Universitario, Concepción",
+            "observation": "",
+            "semester": 2,
+            "career": 3
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 27,
+        "fields": {
+            "name": "Paula",
+            "last_name": "Arias",
+            "second_last_name": "Bravo",
+            "rut": "44.678.901-2",
+            "phone": "965432198",
+            "email": "paula.arias@uchile.cl",
+            "emergency_name": "Sebastián Bravo",
+            "emergency_number": "965432198",
+            "student_address": "Av. Salvador 1250, Providencia",
+            "observation": "",
+            "semester": 1,
+            "career": 4
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 28,
+        "fields": {
+            "name": "Cristóbal",
+            "last_name": "Contreras",
+            "second_last_name": "Paredes",
+            "rut": "45.789.012-3",
+            "phone": "932145876",
+            "email": "cristobal.contreras@uc.cl",
+            "emergency_name": "Carolina Paredes",
+            "emergency_number": "932145876",
+            "student_address": "Alameda 890, Santiago",
+            "observation": "",
+            "semester": 2,
+            "career": 5
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 29,
+        "fields": {
+            "name": "Carolina",
+            "last_name": "Cruz",
+            "second_last_name": "Zapata",
+            "rut": "46.890.123-4",
+            "phone": "987654432",
+            "email": "carolina.cruz@udec.cl",
+            "emergency_name": "Lorena Zapata",
+            "emergency_number": "987654432",
+            "student_address": "Barrio Universitario, Concepción",
+            "observation": "",
+            "semester": 1,
+            "career": 2
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 30,
+        "fields": {
+            "name": "Maximiliano",
+            "last_name": "Silva",
+            "second_last_name": "Espinoza",
+            "rut": "47.901.234-5",
+            "phone": "987654567",
+            "email": "maximiliano.silva@uchile.cl",
+            "emergency_name": "Francisca Espinoza",
+            "emergency_number": "987654567",
+            "student_address": "Calle Marcoleta 1200, Santiago",
+            "observation": "",
+            "semester": 2,
+            "career": 1
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 31,
+        "fields": {
+            "name": "Gabriela",
+            "last_name": "Hernández",
+            "second_last_name": "Olivares",
+            "rut": "48.012.345-6",
+            "phone": "943216543",
+            "email": "gabriela.hernandez@uc.cl",
+            "emergency_name": "Pedro Olivares",
+            "emergency_number": "943216543",
+            "student_address": "Alameda 567, Santiago",
+            "observation": "",
+            "semester": 1,
+            "career": 4
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 32,
+        "fields": {
+            "name": "Vicente",
+            "last_name": "Cordero",
+            "second_last_name": "Vega",
+            "rut": "49.123.456-7",
+            "phone": "932145321",
+            "email": "vicente.cordero@udec.cl",
+            "emergency_name": "Alejandra Vega",
+            "emergency_number": "932145321",
+            "student_address": "Barrio Universitario, Concepción",
+            "observation": "",
+            "semester": 2,
+            "career": 3
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 33,
+        "fields": {
+            "name": "Agustina",
+            "last_name": "Vega",
+            "second_last_name": "Campos",
+            "rut": "50.234.567-8",
+            "phone": "965432543",
+            "email": "agustina.vega@uchile.cl",
+            "emergency_name": "Cristina Campos",
+            "emergency_number": "965432543",
+            "student_address": "Av. Salvador 1800, Providencia",
+            "observation": "",
+            "semester": 1,
+            "career": 5
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 34,
+        "fields": {
+            "name": "Felipe",
+            "last_name": "Lara",
+            "second_last_name": "Castillo",
+            "rut": "51.345.678-9",
+            "phone": "932145765",
+            "email": "felipe.lara@uc.cl",
+            "emergency_name": "Rosa Castillo",
+            "emergency_number": "932145765",
+            "student_address": "Alameda 678, Santiago",
+            "observation": "",
+            "semester": 2,
+            "career": 1
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 35,
+        "fields": {
+            "name": "María",
+            "last_name": "Godoy",
+            "second_last_name": "Pizarro",
+            "rut": "52.456.789-0",
+            "phone": "987654999",
+            "email": "maria.godoy@udec.cl",
+            "emergency_name": "Sofía Pizarro",
+            "emergency_number": "987654999",
+            "student_address": "Barrio Universitario, Concepción",
+            "observation": "",
+            "semester": 1,
+            "career": 2
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 36,
+        "fields": {
+            "name": "Tomás",
+            "last_name": "Aravena",
+            "second_last_name": "Fierro",
+            "rut": "53.567.890-1",
+            "phone": "932145234",
+            "email": "tomas.aravena@uchile.cl",
+            "emergency_name": "Rodrigo Fierro",
+            "emergency_number": "932145234",
+            "student_address": "Calle Marcoleta 1400, Santiago",
+            "observation": "",
+            "semester": 2,
+            "career": 4
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 37,
+        "fields": {
+            "name": "Valentina",
+            "last_name": "González",
+            "second_last_name": "Meza",
+            "rut": "54.678.901-2",
+            "phone": "965432234",
+            "email": "valentina.gonzalez@uc.cl",
+            "emergency_name": "Fernando Meza",
+            "emergency_number": "965432234",
+            "student_address": "Alameda 1200, Santiago",
+            "observation": "",
+            "semester": 1,
+            "career": 5
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 38,
+        "fields": {
+            "name": "Mateo",
+            "last_name": "Ríos",
+            "second_last_name": "Ortiz",
+            "rut": "55.789.012-3",
+            "phone": "965432333",
+            "email": "mateo.rios@udec.cl",
+            "emergency_name": "Rosa Ortiz",
+            "emergency_number": "965432333",
+            "student_address": "Barrio Universitario, Concepción",
+            "observation": "",
+            "semester": 2,
+            "career": 3
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 39,
+        "fields": {
+            "name": "Antonia",
+            "last_name": "Carrasco",
+            "second_last_name": "Saavedra",
+            "rut": "56.890.123-4",
+            "phone": "987654543",
+            "email": "antonia.carrasco@uchile.cl",
+            "emergency_name": "Pedro Saavedra",
+            "emergency_number": "987654543",
+            "student_address": "Calle Salvador 1500, Santiago",
+            "observation": "",
+            "semester": 1,
+            "career": 1
+        }
+    },
+    {
+        "model": "campoclinico.student",
+        "pk": 40,
+        "fields": {
+            "name": "Simón",
+            "last_name": "Fuentes",
+            "second_last_name": "Morales",
+            "rut": "57.901.234-5",
+            "phone": "987654654",
+            "email": "simon.fuentes@uc.cl",
+            "emergency_name": "Marcela Morales",
+            "emergency_number": "987654654",
+            "student_address": "Alameda 1400, Santiago",
+            "observation": "",
+            "semester": 2,
+            "career": 4
+        }
+    }
+]

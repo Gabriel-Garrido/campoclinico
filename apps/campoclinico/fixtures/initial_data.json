@@ -3,55 +3,33 @@
         "model": "campoclinico.subject",
         "pk": 1,
         "fields": {
-            "subject_name": "Práctica Clínica 1",
+            "subject_name": "Anatomía Humana",
             "nrc": "NRC-001",
-            "semester": 2,
-            "type_of_internship": "internado",
-            "total_required_hours": 120
+            "semester": 1,
+            "type_of_internship": "curricular",
+            "total_required_hours": 80
         }
     },
     {
         "model": "campoclinico.subject",
         "pk": 2,
         "fields": {
-            "subject_name": "Práctica Clínica 2",
+            "subject_name": "Fisiología Básica",
             "nrc": "NRC-002",
-            "semester": 3,
+            "semester": 2,
             "type_of_internship": "curricular",
-            "total_required_hours": 140
+            "total_required_hours": 90
         }
     },
     {
         "model": "campoclinico.subject",
         "pk": 3,
         "fields": {
-            "subject_name": "Práctica Clínica 3",
+            "subject_name": "Práctica Clínica Inicial",
             "nrc": "NRC-003",
-            "semester": 4,
+            "semester": 3,
             "type_of_internship": "internado",
-            "total_required_hours": 160
-        }
-    },
-    {
-        "model": "campoclinico.subject",
-        "pk": 4,
-        "fields": {
-            "subject_name": "Práctica Clínica 4",
-            "nrc": "NRC-004",
-            "semester": 5,
-            "type_of_internship": "curricular",
-            "total_required_hours": 180
-        }
-    },
-    {
-        "model": "campoclinico.subject",
-        "pk": 5,
-        "fields": {
-            "subject_name": "Práctica Clínica 5",
-            "nrc": "NRC-005",
-            "semester": 6,
-            "type_of_internship": "internado",
-            "total_required_hours": 200
+            "total_required_hours": 120
         }
     },
     {
@@ -59,7 +37,7 @@
         "pk": 1,
         "fields": {
             "university_name": "Universidad de Chile",
-            "university_rut": "70.123.456-7",
+            "university_rut": "60.123.456-7",
             "campus_name": "Facultad de Medicina",
             "campus_address": "Av. Independencia 1027, Santiago"
         }
@@ -69,18 +47,28 @@
         "pk": 2,
         "fields": {
             "university_name": "Pontificia Universidad Católica de Chile",
-            "university_rut": "70.987.654-3",
-            "campus_name": "Escuela de Enfermería",
+            "university_rut": "65.987.654-3",
+            "campus_name": "Escuela de Ciencias de la Salud",
             "campus_address": "Alameda 340, Santiago"
         }
     },
     {
+        "model": "campoclinico.university",
+        "pk": 3,
+        "fields": {
+            "university_name": "Universidad de Concepción",
+            "university_rut": "75.456.789-1",
+            "campus_name": "Facultad de Ciencias Biológicas",
+            "campus_address": "Barrio Universitario, Concepción"
+        }
+    },
+    {
         "model": "campoclinico.career",
         "pk": 1,
         "fields": {
             "university": 1,
-            "career_name": "Medicina - 1",
-            "career_secretary_name": "Secretario/a Académico 1",
+            "career_name": "Medicina",
+            "career_secretary_name": "Dr. Juan González",
             "duration_years": 6
         }
     },
@@ -88,9 +76,9 @@
         "model": "campoclinico.career",
         "pk": 2,
         "fields": {
-            "university": 1,
-            "career_name": "Enfermería - 2",
-            "career_secretary_name": "Secretario/a Académico 2",
+            "university": 2,
+            "career_name": "Enfermería",
+            "career_secretary_name": "Lic. María López",
             "duration_years": 5
         }
     },
@@ -98,19 +86,19 @@
         "model": "campoclinico.career",
         "pk": 3,
         "fields": {
-            "university": 1,
-            "career_name": "Medicina - 3",
-            "career_secretary_name": "Secretario/a Académico 3",
-            "duration_years": 6
+            "university": 3,
+            "career_name": "Kinesiología",
+            "career_secretary_name": "Dr. Carlos Pérez",
+            "duration_years": 5
         }
     },
     {
         "model": "campoclinico.career",
         "pk": 4,
         "fields": {
-            "university": 2,
-            "career_name": "Enfermería - 4",
-            "career_secretary_name": "Secretario/a Académico 4",
+            "university": 1,
+            "career_name": "Nutrición",
+            "career_secretary_name": "Lic. Fernanda Castro",
             "duration_years": 5
         }
     },
@@ -119,74 +107,14 @@
         "pk": 5,
         "fields": {
             "university": 2,
-            "career_name": "Medicina - 5",
-            "career_secretary_name": "Secretario/a Académico 5",
-            "duration_years": 6
-        }
-    },
-    {
-        "model": "campoclinico.career",
-        "pk": 6,
-        "fields": {
-            "university": 2,
-            "career_name": "Enfermería - 6",
-            "career_secretary_name": "Secretario/a Académico 6",
+            "career_name": "Fonoaudiología",
+            "career_secretary_name": "Dr. Jaime Fernández",
             "duration_years": 5
         }
     },
     {
         "model": "campoclinico.semester",
         "pk": 1,
-        "fields": {
-            "semester_number": 2,
-            "career": 2,
-            "career_year": 2,
-            "academic_year": 2024
-        }
-    },
-    {
-        "model": "campoclinico.semester",
-        "pk": 2,
-        "fields": {
-            "semester_number": 1,
-            "career": 3,
-            "career_year": 3,
-            "academic_year": 2024
-        }
-    },
-    {
-        "model": "campoclinico.semester",
-        "pk": 3,
-        "fields": {
-            "semester_number": 2,
-            "career": 4,
-            "career_year": 1,
-            "academic_year": 2024
-        }
-    },
-    {
-        "model": "campoclinico.semester",
-        "pk": 4,
-        "fields": {
-            "semester_number": 1,
-            "career": 5,
-            "career_year": 2,
-            "academic_year": 2024
-        }
-    },
-    {
-        "model": "campoclinico.semester",
-        "pk": 5,
-        "fields": {
-            "semester_number": 2,
-            "career": 6,
-            "career_year": 3,
-            "academic_year": 2024
-        }
-    },
-    {
-        "model": "campoclinico.semester",
-        "pk": 6,
         "fields": {
             "semester_number": 1,
             "career": 1,
@@ -196,1873 +124,118 @@
     },
     {
         "model": "campoclinico.semester",
-        "pk": 7,
+        "pk": 2,
         "fields": {
             "semester_number": 2,
-            "career": 2,
-            "career_year": 2,
-            "academic_year": 2024
-        }
-    },
-    {
-        "model": "campoclinico.semester",
-        "pk": 8,
-        "fields": {
-            "semester_number": 1,
-            "career": 3,
-            "career_year": 3,
-            "academic_year": 2024
-        }
-    },
-    {
-        "model": "campoclinico.semester",
-        "pk": 9,
-        "fields": {
-            "semester_number": 2,
-            "career": 4,
-            "career_year": 1,
-            "academic_year": 2024
-        }
-    },
-    {
-        "model": "campoclinico.semester",
-        "pk": 10,
-        "fields": {
-            "semester_number": 1,
-            "career": 5,
-            "career_year": 2,
-            "academic_year": 2024
-        }
-    },
-    {
-        "model": "campoclinico.semester",
-        "pk": 11,
-        "fields": {
-            "semester_number": 2,
-            "career": 6,
-            "career_year": 3,
-            "academic_year": 2024
-        }
-    },
-    {
-        "model": "campoclinico.semester",
-        "pk": 12,
-        "fields": {
-            "semester_number": 1,
             "career": 1,
             "career_year": 1,
             "academic_year": 2024
         }
     },
     {
-        "model": "campoclinico.student",
-        "pk": 1,
-        "fields": {
-            "name": "Estudiante Nombre 1",
-            "last_name": "Pérez 1",
-            "second_last_name": "González 1",
-            "rut": "20000001-1",
-            "phone": "912345601",
-            "email": "nombre1@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 1",
-            "emergency_number": "987654301",
-            "student_address": "Calle 1, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 2,
-            "career": 2
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 2,
-        "fields": {
-            "name": "Estudiante Nombre 2",
-            "last_name": "Pérez 2",
-            "second_last_name": "González 2",
-            "rut": "20000002-2",
-            "phone": "912345602",
-            "email": "nombre2@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 2",
-            "emergency_number": "987654302",
-            "student_address": "Calle 2, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 3,
-            "career": 3
-        }
-    },
-    {
-        "model": "campoclinico.student",
+        "model": "campoclinico.semester",
         "pk": 3,
         "fields": {
-            "name": "Estudiante Nombre 3",
-            "last_name": "Pérez 3",
-            "second_last_name": "González 3",
-            "rut": "20000003-3",
-            "phone": "912345603",
-            "email": "nombre3@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 3",
-            "emergency_number": "987654303",
-            "student_address": "Calle 3, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 4,
-            "career": 4
+            "semester_number": 1,
+            "career": 2,
+            "career_year": 1,
+            "academic_year": 2024
         }
     },
     {
-        "model": "campoclinico.student",
+        "model": "campoclinico.semester",
         "pk": 4,
         "fields": {
-            "name": "Estudiante Nombre 4",
-            "last_name": "Pérez 4",
-            "second_last_name": "González 4",
-            "rut": "20000004-4",
-            "phone": "912345604",
-            "email": "nombre4@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 4",
-            "emergency_number": "987654304",
-            "student_address": "Calle 4, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 5,
-            "career": 5
+            "semester_number": 2,
+            "career": 2,
+            "career_year": 1,
+            "academic_year": 2024
         }
     },
     {
-        "model": "campoclinico.student",
+        "model": "campoclinico.semester",
         "pk": 5,
         "fields": {
-            "name": "Estudiante Nombre 5",
-            "last_name": "Pérez 5",
-            "second_last_name": "González 5",
-            "rut": "20000005-5",
-            "phone": "912345605",
-            "email": "nombre5@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 5",
-            "emergency_number": "987654305",
-            "student_address": "Calle 5, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 6,
-            "career": 6
+            "semester_number": 1,
+            "career": 3,
+            "career_year": 1,
+            "academic_year": 2024
         }
     },
     {
-        "model": "campoclinico.student",
+        "model": "campoclinico.semester",
         "pk": 6,
         "fields": {
-            "name": "Estudiante Nombre 6",
-            "last_name": "Pérez 6",
-            "second_last_name": "González 6",
-            "rut": "20000006-6",
-            "phone": "912345606",
-            "email": "nombre6@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 6",
-            "emergency_number": "987654306",
-            "student_address": "Calle 6, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 7,
-            "career": 1
+            "semester_number": 2,
+            "career": 3,
+            "career_year": 1,
+            "academic_year": 2024
         }
     },
     {
-        "model": "campoclinico.student",
-        "pk": 7,
-        "fields": {
-            "name": "Estudiante Nombre 7",
-            "last_name": "Pérez 7",
-            "second_last_name": "González 7",
-            "rut": "20000007-7",
-            "phone": "912345607",
-            "email": "nombre7@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 7",
-            "emergency_number": "987654307",
-            "student_address": "Calle 7, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 8,
-            "career": 2
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 8,
-        "fields": {
-            "name": "Estudiante Nombre 8",
-            "last_name": "Pérez 8",
-            "second_last_name": "González 8",
-            "rut": "20000008-8",
-            "phone": "912345608",
-            "email": "nombre8@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 8",
-            "emergency_number": "987654308",
-            "student_address": "Calle 8, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 9,
-            "career": 3
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 9,
-        "fields": {
-            "name": "Estudiante Nombre 9",
-            "last_name": "Pérez 9",
-            "second_last_name": "González 9",
-            "rut": "20000009-0",
-            "phone": "912345609",
-            "email": "nombre9@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 9",
-            "emergency_number": "987654309",
-            "student_address": "Calle 9, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 10,
-            "career": 4
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 10,
-        "fields": {
-            "name": "Estudiante Nombre 10",
-            "last_name": "Pérez 10",
-            "second_last_name": "González 10",
-            "rut": "20000010-1",
-            "phone": "912345610",
-            "email": "nombre10@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 10",
-            "emergency_number": "987654310",
-            "student_address": "Calle 10, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 11,
-            "career": 5
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 11,
-        "fields": {
-            "name": "Estudiante Nombre 11",
-            "last_name": "Pérez 11",
-            "second_last_name": "González 11",
-            "rut": "20000011-2",
-            "phone": "912345611",
-            "email": "nombre11@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 11",
-            "emergency_number": "987654311",
-            "student_address": "Calle 11, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 12,
-            "career": 6
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 12,
-        "fields": {
-            "name": "Estudiante Nombre 12",
-            "last_name": "Pérez 12",
-            "second_last_name": "González 12",
-            "rut": "20000012-3",
-            "phone": "912345612",
-            "email": "nombre12@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 12",
-            "emergency_number": "987654312",
-            "student_address": "Calle 12, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 1,
-            "career": 1
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 13,
-        "fields": {
-            "name": "Estudiante Nombre 13",
-            "last_name": "Pérez 13",
-            "second_last_name": "González 13",
-            "rut": "20000013-4",
-            "phone": "912345613",
-            "email": "nombre13@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 13",
-            "emergency_number": "987654313",
-            "student_address": "Calle 13, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 2,
-            "career": 2
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 14,
-        "fields": {
-            "name": "Estudiante Nombre 14",
-            "last_name": "Pérez 14",
-            "second_last_name": "González 14",
-            "rut": "20000014-5",
-            "phone": "912345614",
-            "email": "nombre14@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 14",
-            "emergency_number": "987654314",
-            "student_address": "Calle 14, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 3,
-            "career": 3
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 15,
-        "fields": {
-            "name": "Estudiante Nombre 15",
-            "last_name": "Pérez 15",
-            "second_last_name": "González 15",
-            "rut": "20000015-6",
-            "phone": "912345615",
-            "email": "nombre15@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 15",
-            "emergency_number": "987654315",
-            "student_address": "Calle 15, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 4,
-            "career": 4
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 16,
-        "fields": {
-            "name": "Estudiante Nombre 16",
-            "last_name": "Pérez 16",
-            "second_last_name": "González 16",
-            "rut": "20000016-7",
-            "phone": "912345616",
-            "email": "nombre16@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 16",
-            "emergency_number": "987654316",
-            "student_address": "Calle 16, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 5,
-            "career": 5
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 17,
-        "fields": {
-            "name": "Estudiante Nombre 17",
-            "last_name": "Pérez 17",
-            "second_last_name": "González 17",
-            "rut": "20000017-8",
-            "phone": "912345617",
-            "email": "nombre17@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 17",
-            "emergency_number": "987654317",
-            "student_address": "Calle 17, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 6,
-            "career": 6
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 18,
-        "fields": {
-            "name": "Estudiante Nombre 18",
-            "last_name": "Pérez 18",
-            "second_last_name": "González 18",
-            "rut": "20000018-0",
-            "phone": "912345618",
-            "email": "nombre18@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 18",
-            "emergency_number": "987654318",
-            "student_address": "Calle 18, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 7,
-            "career": 1
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 19,
-        "fields": {
-            "name": "Estudiante Nombre 19",
-            "last_name": "Pérez 19",
-            "second_last_name": "González 19",
-            "rut": "20000019-1",
-            "phone": "912345619",
-            "email": "nombre19@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 19",
-            "emergency_number": "987654319",
-            "student_address": "Calle 19, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 8,
-            "career": 2
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 20,
-        "fields": {
-            "name": "Estudiante Nombre 20",
-            "last_name": "Pérez 20",
-            "second_last_name": "González 20",
-            "rut": "20000020-2",
-            "phone": "912345620",
-            "email": "nombre20@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 20",
-            "emergency_number": "987654320",
-            "student_address": "Calle 20, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 9,
-            "career": 3
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 21,
-        "fields": {
-            "name": "Estudiante Nombre 21",
-            "last_name": "Pérez 21",
-            "second_last_name": "González 21",
-            "rut": "20000021-3",
-            "phone": "912345621",
-            "email": "nombre21@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 21",
-            "emergency_number": "987654321",
-            "student_address": "Calle 21, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 10,
-            "career": 4
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 22,
-        "fields": {
-            "name": "Estudiante Nombre 22",
-            "last_name": "Pérez 22",
-            "second_last_name": "González 22",
-            "rut": "20000022-4",
-            "phone": "912345622",
-            "email": "nombre22@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 22",
-            "emergency_number": "987654322",
-            "student_address": "Calle 22, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 11,
-            "career": 5
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 23,
-        "fields": {
-            "name": "Estudiante Nombre 23",
-            "last_name": "Pérez 23",
-            "second_last_name": "González 23",
-            "rut": "20000023-5",
-            "phone": "912345623",
-            "email": "nombre23@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 23",
-            "emergency_number": "987654323",
-            "student_address": "Calle 23, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 12,
-            "career": 6
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 24,
-        "fields": {
-            "name": "Estudiante Nombre 24",
-            "last_name": "Pérez 24",
-            "second_last_name": "González 24",
-            "rut": "20000024-6",
-            "phone": "912345624",
-            "email": "nombre24@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 24",
-            "emergency_number": "987654324",
-            "student_address": "Calle 24, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 1,
-            "career": 1
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 25,
-        "fields": {
-            "name": "Estudiante Nombre 25",
-            "last_name": "Pérez 25",
-            "second_last_name": "González 25",
-            "rut": "20000025-7",
-            "phone": "912345625",
-            "email": "nombre25@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 25",
-            "emergency_number": "987654325",
-            "student_address": "Calle 25, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 2,
-            "career": 2
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 26,
-        "fields": {
-            "name": "Estudiante Nombre 26",
-            "last_name": "Pérez 26",
-            "second_last_name": "González 26",
-            "rut": "20000026-8",
-            "phone": "912345626",
-            "email": "nombre26@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 26",
-            "emergency_number": "987654326",
-            "student_address": "Calle 26, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 3,
-            "career": 3
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 27,
-        "fields": {
-            "name": "Estudiante Nombre 27",
-            "last_name": "Pérez 27",
-            "second_last_name": "González 27",
-            "rut": "20000027-0",
-            "phone": "912345627",
-            "email": "nombre27@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 27",
-            "emergency_number": "987654327",
-            "student_address": "Calle 27, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 4,
-            "career": 4
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 28,
-        "fields": {
-            "name": "Estudiante Nombre 28",
-            "last_name": "Pérez 28",
-            "second_last_name": "González 28",
-            "rut": "20000028-1",
-            "phone": "912345628",
-            "email": "nombre28@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 28",
-            "emergency_number": "987654328",
-            "student_address": "Calle 28, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 5,
-            "career": 5
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 29,
-        "fields": {
-            "name": "Estudiante Nombre 29",
-            "last_name": "Pérez 29",
-            "second_last_name": "González 29",
-            "rut": "20000029-2",
-            "phone": "912345629",
-            "email": "nombre29@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 29",
-            "emergency_number": "987654329",
-            "student_address": "Calle 29, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 6,
-            "career": 6
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 30,
-        "fields": {
-            "name": "Estudiante Nombre 30",
-            "last_name": "Pérez 30",
-            "second_last_name": "González 30",
-            "rut": "20000030-3",
-            "phone": "912345630",
-            "email": "nombre30@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 30",
-            "emergency_number": "987654330",
-            "student_address": "Calle 30, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 7,
-            "career": 1
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 31,
-        "fields": {
-            "name": "Estudiante Nombre 31",
-            "last_name": "Pérez 31",
-            "second_last_name": "González 31",
-            "rut": "20000031-4",
-            "phone": "912345631",
-            "email": "nombre31@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 31",
-            "emergency_number": "987654331",
-            "student_address": "Calle 31, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 8,
-            "career": 2
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 32,
-        "fields": {
-            "name": "Estudiante Nombre 32",
-            "last_name": "Pérez 32",
-            "second_last_name": "González 32",
-            "rut": "20000032-5",
-            "phone": "912345632",
-            "email": "nombre32@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 32",
-            "emergency_number": "987654332",
-            "student_address": "Calle 32, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 9,
-            "career": 3
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 33,
-        "fields": {
-            "name": "Estudiante Nombre 33",
-            "last_name": "Pérez 33",
-            "second_last_name": "González 33",
-            "rut": "20000033-6",
-            "phone": "912345633",
-            "email": "nombre33@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 33",
-            "emergency_number": "987654333",
-            "student_address": "Calle 33, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 10,
-            "career": 4
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 34,
-        "fields": {
-            "name": "Estudiante Nombre 34",
-            "last_name": "Pérez 34",
-            "second_last_name": "González 34",
-            "rut": "20000034-7",
-            "phone": "912345634",
-            "email": "nombre34@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 34",
-            "emergency_number": "987654334",
-            "student_address": "Calle 34, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 11,
-            "career": 5
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 35,
-        "fields": {
-            "name": "Estudiante Nombre 35",
-            "last_name": "Pérez 35",
-            "second_last_name": "González 35",
-            "rut": "20000035-8",
-            "phone": "912345635",
-            "email": "nombre35@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 35",
-            "emergency_number": "987654335",
-            "student_address": "Calle 35, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 12,
-            "career": 6
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 36,
-        "fields": {
-            "name": "Estudiante Nombre 36",
-            "last_name": "Pérez 36",
-            "second_last_name": "González 36",
-            "rut": "20000036-0",
-            "phone": "912345636",
-            "email": "nombre36@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 36",
-            "emergency_number": "987654336",
-            "student_address": "Calle 36, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 1,
-            "career": 1
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 37,
-        "fields": {
-            "name": "Estudiante Nombre 37",
-            "last_name": "Pérez 37",
-            "second_last_name": "González 37",
-            "rut": "20000037-1",
-            "phone": "912345637",
-            "email": "nombre37@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 37",
-            "emergency_number": "987654337",
-            "student_address": "Calle 37, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 2,
-            "career": 2
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 38,
-        "fields": {
-            "name": "Estudiante Nombre 38",
-            "last_name": "Pérez 38",
-            "second_last_name": "González 38",
-            "rut": "20000038-2",
-            "phone": "912345638",
-            "email": "nombre38@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 38",
-            "emergency_number": "987654338",
-            "student_address": "Calle 38, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 3,
-            "career": 3
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 39,
-        "fields": {
-            "name": "Estudiante Nombre 39",
-            "last_name": "Pérez 39",
-            "second_last_name": "González 39",
-            "rut": "20000039-3",
-            "phone": "912345639",
-            "email": "nombre39@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 39",
-            "emergency_number": "987654339",
-            "student_address": "Calle 39, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 4,
-            "career": 4
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 40,
-        "fields": {
-            "name": "Estudiante Nombre 40",
-            "last_name": "Pérez 40",
-            "second_last_name": "González 40",
-            "rut": "20000040-4",
-            "phone": "912345640",
-            "email": "nombre40@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 40",
-            "emergency_number": "987654340",
-            "student_address": "Calle 40, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 5,
-            "career": 5
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 41,
-        "fields": {
-            "name": "Estudiante Nombre 41",
-            "last_name": "Pérez 41",
-            "second_last_name": "González 41",
-            "rut": "20000041-5",
-            "phone": "912345641",
-            "email": "nombre41@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 41",
-            "emergency_number": "987654341",
-            "student_address": "Calle 41, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 6,
-            "career": 6
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 42,
-        "fields": {
-            "name": "Estudiante Nombre 42",
-            "last_name": "Pérez 42",
-            "second_last_name": "González 42",
-            "rut": "20000042-6",
-            "phone": "912345642",
-            "email": "nombre42@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 42",
-            "emergency_number": "987654342",
-            "student_address": "Calle 42, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 7,
-            "career": 1
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 43,
-        "fields": {
-            "name": "Estudiante Nombre 43",
-            "last_name": "Pérez 43",
-            "second_last_name": "González 43",
-            "rut": "20000043-7",
-            "phone": "912345643",
-            "email": "nombre43@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 43",
-            "emergency_number": "987654343",
-            "student_address": "Calle 43, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 8,
-            "career": 2
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 44,
-        "fields": {
-            "name": "Estudiante Nombre 44",
-            "last_name": "Pérez 44",
-            "second_last_name": "González 44",
-            "rut": "20000044-8",
-            "phone": "912345644",
-            "email": "nombre44@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 44",
-            "emergency_number": "987654344",
-            "student_address": "Calle 44, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 9,
-            "career": 3
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 45,
-        "fields": {
-            "name": "Estudiante Nombre 45",
-            "last_name": "Pérez 45",
-            "second_last_name": "González 45",
-            "rut": "20000045-0",
-            "phone": "912345645",
-            "email": "nombre45@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 45",
-            "emergency_number": "987654345",
-            "student_address": "Calle 45, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 10,
-            "career": 4
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 46,
-        "fields": {
-            "name": "Estudiante Nombre 46",
-            "last_name": "Pérez 46",
-            "second_last_name": "González 46",
-            "rut": "20000046-1",
-            "phone": "912345646",
-            "email": "nombre46@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 46",
-            "emergency_number": "987654346",
-            "student_address": "Calle 46, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 11,
-            "career": 5
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 47,
-        "fields": {
-            "name": "Estudiante Nombre 47",
-            "last_name": "Pérez 47",
-            "second_last_name": "González 47",
-            "rut": "20000047-2",
-            "phone": "912345647",
-            "email": "nombre47@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 47",
-            "emergency_number": "987654347",
-            "student_address": "Calle 47, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 12,
-            "career": 6
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 48,
-        "fields": {
-            "name": "Estudiante Nombre 48",
-            "last_name": "Pérez 48",
-            "second_last_name": "González 48",
-            "rut": "20000048-3",
-            "phone": "912345648",
-            "email": "nombre48@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 48",
-            "emergency_number": "987654348",
-            "student_address": "Calle 48, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 1,
-            "career": 1
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 49,
-        "fields": {
-            "name": "Estudiante Nombre 49",
-            "last_name": "Pérez 49",
-            "second_last_name": "González 49",
-            "rut": "20000049-4",
-            "phone": "912345649",
-            "email": "nombre49@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 49",
-            "emergency_number": "987654349",
-            "student_address": "Calle 49, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 2,
-            "career": 2
-        }
-    },
-    {
-        "model": "campoclinico.student",
-        "pk": 50,
-        "fields": {
-            "name": "Estudiante Nombre 50",
-            "last_name": "Pérez 50",
-            "second_last_name": "González 50",
-            "rut": "20000050-5",
-            "phone": "912345650",
-            "email": "nombre50@ejemplo.cl",
-            "emergency_name": "Contacto Familiar 50",
-            "emergency_number": "987654350",
-            "student_address": "Calle 50, Santiago",
-            "observation": "Sin observaciones",
-            "semester": 3,
-            "career": 3
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldIntitution",
+        "model": "campoclinico.clinicfieldinstitution",
         "pk": 1,
         "fields": {
-            "intitution_name": "Hospital Clínico 1",
-            "institution_branch_name": "Unidad 1",
-            "clinic_field_code": "CF-001",
-            "clinic_field_address": "Av. Salvador 1, Providencia",
-            "clinic_field_rut": "80.123.451-1",
-            "clinic_field_razon_social": "Hospital Clínico Santiago 1",
-            "is_clinic_field_agreement_active": false
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldIntitution",
-        "pk": 2,
-        "fields": {
-            "intitution_name": "Hospital Clínico 2",
-            "institution_branch_name": "Unidad 2",
-            "clinic_field_code": "CF-002",
-            "clinic_field_address": "Av. Salvador 2, Providencia",
-            "clinic_field_rut": "80.123.452-2",
-            "clinic_field_razon_social": "Hospital Clínico Santiago 2",
+            "clinic_field_institution_university": 1,
+            "institution_name": "Hospital Clínico de la Universidad de Chile",
+            "institution_branch_name": "Unidad Central",
+            "clinic_field_code": "HCUCH-001",
+            "clinic_field_address": "Av. Salvador 1500, Providencia",
+            "clinic_field_rut": "80.123.451-2",
+            "clinic_field_razon_social": "Hospital Clínico UChile",
             "is_clinic_field_agreement_active": true
         }
     },
     {
-        "model": "campoclinico.ClinicFieldIntitution",
-        "pk": 3,
-        "fields": {
-            "intitution_name": "Hospital Clínico 3",
-            "institution_branch_name": "Unidad 3",
-            "clinic_field_code": "CF-003",
-            "clinic_field_address": "Av. Salvador 3, Providencia",
-            "clinic_field_rut": "80.123.453-3",
-            "clinic_field_razon_social": "Hospital Clínico Santiago 3",
-            "is_clinic_field_agreement_active": false
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldUnity",
-        "pk": 1,
-        "fields": {
-            "ClinicFieldUnity_name": "Unidad de Cuidados Intensivos 1",
-            "ClinicFieldIntitution": 2
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldUnity",
+        "model": "campoclinico.clinicfieldinstitution",
         "pk": 2,
         "fields": {
-            "ClinicFieldUnity_name": "Unidad de Cuidados Intensivos 2",
-            "ClinicFieldIntitution": 3
+            "clinic_field_institution_university": 1,
+            "institution_name": "Hospital Clínico UC",
+            "institution_branch_name": "Unidad de Pediatría",
+            "clinic_field_code": "HCUC-002",
+            "clinic_field_address": "Av. Marcoleta 345, Santiago",
+            "clinic_field_rut": "70.987.123-4",
+            "clinic_field_razon_social": "Hospital Clínico UC",
+            "is_clinic_field_agreement_active": true
         }
     },
     {
-        "model": "campoclinico.ClinicFieldUnity",
+        "model": "campoclinico.clinicfieldinstitution",
         "pk": 3,
         "fields": {
-            "ClinicFieldUnity_name": "Unidad de Cuidados Intensivos 3",
-            "ClinicFieldIntitution": 1
+            "clinic_field_institution_university": 1,
+            "institution_name": "Hospital Regional de Concepción",
+            "institution_branch_name": "Unidad de Traumatología",
+            "clinic_field_code": "HRCON-003",
+            "clinic_field_address": "Av. San Martín 1234, Concepción",
+            "clinic_field_rut": "75.987.654-3",
+            "clinic_field_razon_social": "Hospital Regional Concepción",
+            "is_clinic_field_agreement_active": true
         }
     },
     {
-        "model": "campoclinico.ClinicFieldUnity",
-        "pk": 4,
-        "fields": {
-            "ClinicFieldUnity_name": "Unidad de Cuidados Intensivos 4",
-            "ClinicFieldIntitution": 2
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldUnity",
-        "pk": 5,
-        "fields": {
-            "ClinicFieldUnity_name": "Unidad de Cuidados Intensivos 5",
-            "ClinicFieldIntitution": 3
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldUnity",
-        "pk": 6,
-        "fields": {
-            "ClinicFieldUnity_name": "Unidad de Cuidados Intensivos 6",
-            "ClinicFieldIntitution": 1
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldUnity",
-        "pk": 7,
-        "fields": {
-            "ClinicFieldUnity_name": "Unidad de Cuidados Intensivos 7",
-            "ClinicFieldIntitution": 2
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldUnity",
-        "pk": 8,
-        "fields": {
-            "ClinicFieldUnity_name": "Unidad de Cuidados Intensivos 8",
-            "ClinicFieldIntitution": 3
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldUnity",
-        "pk": 9,
-        "fields": {
-            "ClinicFieldUnity_name": "Unidad de Cuidados Intensivos 9",
-            "ClinicFieldIntitution": 1
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
+        "model": "campoclinico.clinicfieldunity",
         "pk": 1,
         "fields": {
-            "ClinicFieldUnity": 2,
-            "subject": 2,
-            "student": 1,
-            "teacher_name": "Dr. Juan Pérez 1",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-02",
-            "is_student_attended": false,
-            "is_place_available": true,
-            "observation": "Sin observaciones"
+            "ClinicFieldUnity_name": "Unidad de Cuidados Intensivos",
+            "ClinicFieldInstitution": 1
         }
     },
     {
-        "model": "campoclinico.ClinicFieldPlaces",
+        "model": "campoclinico.clinicfieldunity",
         "pk": 2,
         "fields": {
-            "ClinicFieldUnity": 3,
-            "subject": 3,
-            "student": 2,
-            "teacher_name": "Dr. Juan Pérez 2",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-03",
-            "is_student_attended": true,
-            "is_place_available": false,
-            "observation": "Sin observaciones"
+            "ClinicFieldUnity_name": "Unidad de Urgencias",
+            "ClinicFieldInstitution": 2
         }
     },
     {
-        "model": "campoclinico.ClinicFieldPlaces",
+        "model": "campoclinico.clinicfieldunity",
         "pk": 3,
         "fields": {
-            "ClinicFieldUnity": 4,
-            "subject": 4,
-            "student": 3,
-            "teacher_name": "Dr. Juan Pérez 3",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-04",
-            "is_student_attended": false,
-            "is_place_available": true,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 4,
-        "fields": {
-            "ClinicFieldUnity": 5,
-            "subject": 5,
-            "student": 4,
-            "teacher_name": "Dr. Juan Pérez 4",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-05",
-            "is_student_attended": true,
-            "is_place_available": false,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 5,
-        "fields": {
-            "ClinicFieldUnity": 6,
-            "subject": 1,
-            "student": 5,
-            "teacher_name": "Dr. Juan Pérez 5",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-06",
-            "is_student_attended": false,
-            "is_place_available": true,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 6,
-        "fields": {
-            "ClinicFieldUnity": 7,
-            "subject": 2,
-            "student": 6,
-            "teacher_name": "Dr. Juan Pérez 6",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-07",
-            "is_student_attended": true,
-            "is_place_available": false,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 7,
-        "fields": {
-            "ClinicFieldUnity": 8,
-            "subject": 3,
-            "student": 7,
-            "teacher_name": "Dr. Juan Pérez 7",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-08",
-            "is_student_attended": false,
-            "is_place_available": true,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 8,
-        "fields": {
-            "ClinicFieldUnity": 9,
-            "subject": 4,
-            "student": 8,
-            "teacher_name": "Dr. Juan Pérez 8",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-09",
-            "is_student_attended": true,
-            "is_place_available": false,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 9,
-        "fields": {
-            "ClinicFieldUnity": 1,
-            "subject": 5,
-            "student": 9,
-            "teacher_name": "Dr. Juan Pérez 9",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-10",
-            "is_student_attended": false,
-            "is_place_available": true,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 10,
-        "fields": {
-            "ClinicFieldUnity": 2,
-            "subject": 1,
-            "student": 10,
-            "teacher_name": "Dr. Juan Pérez 10",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-11",
-            "is_student_attended": true,
-            "is_place_available": false,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 11,
-        "fields": {
-            "ClinicFieldUnity": 3,
-            "subject": 2,
-            "student": 11,
-            "teacher_name": "Dr. Juan Pérez 11",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-12",
-            "is_student_attended": false,
-            "is_place_available": true,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 12,
-        "fields": {
-            "ClinicFieldUnity": 4,
-            "subject": 3,
-            "student": 12,
-            "teacher_name": "Dr. Juan Pérez 12",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-13",
-            "is_student_attended": true,
-            "is_place_available": false,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 13,
-        "fields": {
-            "ClinicFieldUnity": 5,
-            "subject": 4,
-            "student": 13,
-            "teacher_name": "Dr. Juan Pérez 13",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-14",
-            "is_student_attended": false,
-            "is_place_available": true,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 14,
-        "fields": {
-            "ClinicFieldUnity": 6,
-            "subject": 5,
-            "student": 14,
-            "teacher_name": "Dr. Juan Pérez 14",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-15",
-            "is_student_attended": true,
-            "is_place_available": false,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 15,
-        "fields": {
-            "ClinicFieldUnity": 7,
-            "subject": 1,
-            "student": 15,
-            "teacher_name": "Dr. Juan Pérez 15",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-16",
-            "is_student_attended": false,
-            "is_place_available": true,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 16,
-        "fields": {
-            "ClinicFieldUnity": 8,
-            "subject": 2,
-            "student": 16,
-            "teacher_name": "Dr. Juan Pérez 16",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-17",
-            "is_student_attended": true,
-            "is_place_available": false,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 17,
-        "fields": {
-            "ClinicFieldUnity": 9,
-            "subject": 3,
-            "student": 17,
-            "teacher_name": "Dr. Juan Pérez 17",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-18",
-            "is_student_attended": false,
-            "is_place_available": true,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 18,
-        "fields": {
-            "ClinicFieldUnity": 1,
-            "subject": 4,
-            "student": 18,
-            "teacher_name": "Dr. Juan Pérez 18",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-19",
-            "is_student_attended": true,
-            "is_place_available": false,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 19,
-        "fields": {
-            "ClinicFieldUnity": 2,
-            "subject": 5,
-            "student": 19,
-            "teacher_name": "Dr. Juan Pérez 19",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-20",
-            "is_student_attended": false,
-            "is_place_available": true,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 20,
-        "fields": {
-            "ClinicFieldUnity": 3,
-            "subject": 1,
-            "student": 20,
-            "teacher_name": "Dr. Juan Pérez 20",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-21",
-            "is_student_attended": true,
-            "is_place_available": false,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 21,
-        "fields": {
-            "ClinicFieldUnity": 4,
-            "subject": 2,
-            "student": 21,
-            "teacher_name": "Dr. Juan Pérez 21",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-22",
-            "is_student_attended": false,
-            "is_place_available": true,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 22,
-        "fields": {
-            "ClinicFieldUnity": 5,
-            "subject": 3,
-            "student": 22,
-            "teacher_name": "Dr. Juan Pérez 22",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-23",
-            "is_student_attended": true,
-            "is_place_available": false,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 23,
-        "fields": {
-            "ClinicFieldUnity": 6,
-            "subject": 4,
-            "student": 23,
-            "teacher_name": "Dr. Juan Pérez 23",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-24",
-            "is_student_attended": false,
-            "is_place_available": true,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 24,
-        "fields": {
-            "ClinicFieldUnity": 7,
-            "subject": 5,
-            "student": 24,
-            "teacher_name": "Dr. Juan Pérez 24",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-25",
-            "is_student_attended": true,
-            "is_place_available": false,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 25,
-        "fields": {
-            "ClinicFieldUnity": 8,
-            "subject": 1,
-            "student": 25,
-            "teacher_name": "Dr. Juan Pérez 25",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-26",
-            "is_student_attended": false,
-            "is_place_available": true,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 26,
-        "fields": {
-            "ClinicFieldUnity": 9,
-            "subject": 2,
-            "student": 26,
-            "teacher_name": "Dr. Juan Pérez 26",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-27",
-            "is_student_attended": true,
-            "is_place_available": false,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 27,
-        "fields": {
-            "ClinicFieldUnity": 1,
-            "subject": 3,
-            "student": 27,
-            "teacher_name": "Dr. Juan Pérez 27",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-28",
-            "is_student_attended": false,
-            "is_place_available": true,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 28,
-        "fields": {
-            "ClinicFieldUnity": 2,
-            "subject": 4,
-            "student": 28,
-            "teacher_name": "Dr. Juan Pérez 28",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-29",
-            "is_student_attended": true,
-            "is_place_available": false,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 29,
-        "fields": {
-            "ClinicFieldUnity": 3,
-            "subject": 5,
-            "student": 29,
-            "teacher_name": "Dr. Juan Pérez 29",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-30",
-            "is_student_attended": false,
-            "is_place_available": true,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 30,
-        "fields": {
-            "ClinicFieldUnity": 4,
-            "subject": 1,
-            "student": 30,
-            "teacher_name": "Dr. Juan Pérez 30",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-01",
-            "is_student_attended": true,
-            "is_place_available": false,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 31,
-        "fields": {
-            "ClinicFieldUnity": 5,
-            "subject": 2,
-            "student": 31,
-            "teacher_name": "Dr. Juan Pérez 31",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-02",
-            "is_student_attended": false,
-            "is_place_available": true,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 32,
-        "fields": {
-            "ClinicFieldUnity": 6,
-            "subject": 3,
-            "student": 32,
-            "teacher_name": "Dr. Juan Pérez 32",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-03",
-            "is_student_attended": true,
-            "is_place_available": false,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 33,
-        "fields": {
-            "ClinicFieldUnity": 7,
-            "subject": 4,
-            "student": 33,
-            "teacher_name": "Dr. Juan Pérez 33",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-04",
-            "is_student_attended": false,
-            "is_place_available": true,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 34,
-        "fields": {
-            "ClinicFieldUnity": 8,
-            "subject": 5,
-            "student": 34,
-            "teacher_name": "Dr. Juan Pérez 34",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-05",
-            "is_student_attended": true,
-            "is_place_available": false,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 35,
-        "fields": {
-            "ClinicFieldUnity": 9,
-            "subject": 1,
-            "student": 35,
-            "teacher_name": "Dr. Juan Pérez 35",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-06",
-            "is_student_attended": false,
-            "is_place_available": true,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 36,
-        "fields": {
-            "ClinicFieldUnity": 1,
-            "subject": 2,
-            "student": 36,
-            "teacher_name": "Dr. Juan Pérez 36",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-07",
-            "is_student_attended": true,
-            "is_place_available": false,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 37,
-        "fields": {
-            "ClinicFieldUnity": 2,
-            "subject": 3,
-            "student": 37,
-            "teacher_name": "Dr. Juan Pérez 37",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-08",
-            "is_student_attended": false,
-            "is_place_available": true,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 38,
-        "fields": {
-            "ClinicFieldUnity": 3,
-            "subject": 4,
-            "student": 38,
-            "teacher_name": "Dr. Juan Pérez 38",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-09",
-            "is_student_attended": true,
-            "is_place_available": false,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 39,
-        "fields": {
-            "ClinicFieldUnity": 4,
-            "subject": 5,
-            "student": 39,
-            "teacher_name": "Dr. Juan Pérez 39",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-10",
-            "is_student_attended": false,
-            "is_place_available": true,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 40,
-        "fields": {
-            "ClinicFieldUnity": 5,
-            "subject": 1,
-            "student": 40,
-            "teacher_name": "Dr. Juan Pérez 40",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-11",
-            "is_student_attended": true,
-            "is_place_available": false,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 41,
-        "fields": {
-            "ClinicFieldUnity": 6,
-            "subject": 2,
-            "student": 41,
-            "teacher_name": "Dr. Juan Pérez 41",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-12",
-            "is_student_attended": false,
-            "is_place_available": true,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 42,
-        "fields": {
-            "ClinicFieldUnity": 7,
-            "subject": 3,
-            "student": 42,
-            "teacher_name": "Dr. Juan Pérez 42",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-13",
-            "is_student_attended": true,
-            "is_place_available": false,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 43,
-        "fields": {
-            "ClinicFieldUnity": 8,
-            "subject": 4,
-            "student": 43,
-            "teacher_name": "Dr. Juan Pérez 43",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-14",
-            "is_student_attended": false,
-            "is_place_available": true,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 44,
-        "fields": {
-            "ClinicFieldUnity": 9,
-            "subject": 5,
-            "student": 44,
-            "teacher_name": "Dr. Juan Pérez 44",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-15",
-            "is_student_attended": true,
-            "is_place_available": false,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 45,
-        "fields": {
-            "ClinicFieldUnity": 1,
-            "subject": 1,
-            "student": 45,
-            "teacher_name": "Dr. Juan Pérez 45",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-16",
-            "is_student_attended": false,
-            "is_place_available": true,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 46,
-        "fields": {
-            "ClinicFieldUnity": 2,
-            "subject": 2,
-            "student": 46,
-            "teacher_name": "Dr. Juan Pérez 46",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-17",
-            "is_student_attended": true,
-            "is_place_available": false,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 47,
-        "fields": {
-            "ClinicFieldUnity": 3,
-            "subject": 3,
-            "student": 47,
-            "teacher_name": "Dr. Juan Pérez 47",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-18",
-            "is_student_attended": false,
-            "is_place_available": true,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 48,
-        "fields": {
-            "ClinicFieldUnity": 4,
-            "subject": 4,
-            "student": 48,
-            "teacher_name": "Dr. Juan Pérez 48",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-19",
-            "is_student_attended": true,
-            "is_place_available": false,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 49,
-        "fields": {
-            "ClinicFieldUnity": 5,
-            "subject": 5,
-            "student": 49,
-            "teacher_name": "Dr. Juan Pérez 49",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-20",
-            "is_student_attended": false,
-            "is_place_available": true,
-            "observation": "Sin observaciones"
-        }
-    },
-    {
-        "model": "campoclinico.ClinicFieldPlaces",
-        "pk": 50,
-        "fields": {
-            "ClinicFieldUnity": 6,
-            "subject": 1,
-            "student": 50,
-            "teacher_name": "Dr. Juan Pérez 50",
-            "start_time": "08:00:00",
-            "end_time": "12:00:00",
-            "date": "2024-11-21",
-            "is_student_attended": true,
-            "is_place_available": false,
-            "observation": "Sin observaciones"
+            "ClinicFieldUnity_name": "Unidad de Traumatología",
+            "ClinicFieldInstitution": 3
         }
     }
 ]

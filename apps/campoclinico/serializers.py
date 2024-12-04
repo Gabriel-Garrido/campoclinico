@@ -3,7 +3,7 @@
 from rest_framework import serializers
 from .models import (
     University, Career, Semester, Subject, Student,
-    ClinicFieldIntitution, ClinicFieldUnity, ClinicFieldPlaces
+    ClinicFieldInstitution, ClinicFieldUnity, ClinicFieldPlaces
 )
 
 class UniversitySerializer(serializers.ModelSerializer):
@@ -43,16 +43,22 @@ class StudentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Student
         fields = '__all__'
+        
+class StudentPostSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Student
+        fields = '__all__'
 
 
 class ClinicFieldInstitutionSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ClinicFieldIntitution
+        model = ClinicFieldInstitution
         fields = '__all__'
 
 
 class ClinicFieldUnitySerializer(serializers.ModelSerializer):
-    ClinicFieldIntitution = ClinicFieldInstitutionSerializer()  # Incluye información de la institución relacionada
+    ClinicFieldInstitution = ClinicFieldInstitutionSerializer()  # Incluye información de la institución relacionada
 
     class Meta:
         model = ClinicFieldUnity

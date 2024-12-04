@@ -62,8 +62,9 @@ class Student(models.Model):
     class Meta:
         unique_together = ('rut', 'career')
 
-class ClinicFieldIntitution(models.Model):
-    intitution_name = models.CharField(max_length=50, unique=False)
+class ClinicFieldInstitution(models.Model):
+    clinic_field_institution_university = models.ForeignKey(University, on_delete=models.CASCADE)
+    institution_name = models.CharField(max_length=50, unique=False)
     institution_branch_name = models.CharField(max_length=50, unique=False, null=True)
     clinic_field_code = models.CharField(max_length=50, unique=False)
     clinic_field_address = models.CharField(max_length=50, unique=False)
@@ -72,14 +73,14 @@ class ClinicFieldIntitution(models.Model):
     is_clinic_field_agreement_active = models.BooleanField(default=True, null=False)
     
     def __str__(self):
-        return f'{self.intitution_name} | sede: {self.institution_branch_name}'
+        return f'{self.institution_name} | sede: {self.institution_branch_name}'
         
 class ClinicFieldUnity(models.Model):
     ClinicFieldUnity_name = models.CharField(max_length=50, unique=False)
-    ClinicFieldIntitution = models.ForeignKey(ClinicFieldIntitution, on_delete=models.CASCADE, null=False)
+    ClinicFieldInstitution = models.ForeignKey(ClinicFieldInstitution, on_delete=models.CASCADE, null=False)
     
     def __str__(self):
-        return f'{self.ClinicFieldUnity_name} {self.ClinicFieldIntitution.intitution_name}'
+        return f'{self.ClinicFieldUnity_name} {self.ClinicFieldInstitution.institution_name}'
     
     
 class ClinicFieldPlaces(models.Model):

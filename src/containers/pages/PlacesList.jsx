@@ -46,7 +46,7 @@ function PlacesList({ places, getPlaces, assignStudentToPlace, user }) {
           (place) =>
             place.date === dateStr &&
             (!selectedInstitution ||
-              place.ClinicFieldUnity.ClinicFieldIntitution.id ===
+              place.ClinicFieldUnity.ClinicFieldInstitution.id ===
                 selectedInstitution.value) &&
             (!selectedUnit ||
               place.ClinicFieldUnity.id === selectedUnit.value)

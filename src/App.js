@@ -7,7 +7,7 @@ import Login from "containers/pages/Login";
 import PlacesList from "containers/pages/PlacesList";
 import Prices from "containers/pages/Prices";
 import Services from "containers/pages/Services";
-import StudentList from "containers/pages/StudentList";
+import StudentManagement from "containers/pages/StudentManagement";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import store from "store";
@@ -24,7 +24,7 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/prices" element={<Prices />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/studentList" element={<PrivateRoute> <StudentList /></PrivateRoute>} />
+          <Route path="/StudentManagement" element={<PrivateRoute> <StudentManagement /></PrivateRoute>} />
           <Route path="/placesList" element={<PrivateRoute> <PlacesList/></PrivateRoute>} />
           <Route path="/login" element={<Login />} />
         </Routes>
